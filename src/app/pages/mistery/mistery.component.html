@@ -1,0 +1,32 @@
+<div class="mistery-content">
+  <div class="corner top-left morse-pulse">
+    <span class="label red">दिन</span>
+  </div>
+  <div class="corner top-right morse-pulse">
+    <span class="label yellow">घंटा</span>
+  </div>
+  <div class="corner bottom-left morse-pulse">
+    <span class="label green">मिनट</span>
+  </div>
+  <div class="corner bottom-right morse-pulse">
+    <span class="label purple">दूसरा</span>
+  </div>
+
+  <div>
+    <img class="star morse-pulse" src="/img/lucifer2.png" alt="Star">
+  </div>
+
+  <div class="countdown morse-pulse">
+    <ng-container *ngIf="(countdown$ | async) as countdown; else countdownFinished">
+      <p>
+        <span class="countdown-item green morse-pulse">{{ countdown.minutes }}</span>
+        <span class="countdown-item red morse-pulse">{{ countdown.days }}</span>
+        <span class="countdown-item purple morse-pulse">{{ countdown.seconds }}</span>
+        <span class="countdown-item yellow morse-pulse">{{ countdown.hours }}</span>
+      </p>
+    </ng-container>
+    <ng-template #countdownFinished>
+      <p>La cuenta atrás ha terminado.</p>
+    </ng-template>
+  </div>
+</div>

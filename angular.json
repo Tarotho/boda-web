@@ -85,7 +85,8 @@
               }
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "https://fonts.googleapis.com/icon?family=Material+Icons"
             ],
             "scripts": []
           }

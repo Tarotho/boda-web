@@ -1,0 +1,38 @@
+.welcome-container h1 {
+  font-size: 5em; /* Ajusta el tamaño de la fuente según sea necesario */
+  margin: 20; /* Eliminar márgenes superior e inferior */
+  white-space: nowrap; /* Evitar que el texto se divida en varias líneas */
+}
+
+.welcome-container h2 {
+  text-align: center;
+  font-size: 2em; /* Ajusta el tamaño de la fuente según sea necesario */
+  margin: 5px 0 10px 0; /* Reducir márgenes superior e inferior */
+}
+
+.welcome-container h3 {
+  text-align: center;
+  font-family: 'Medieval', sans-serif;
+  font-size: 2em; /* Ajusta el tamaño de la fuente según sea necesario */
+  margin: 5px 0 10px 0; /* Reducir márgenes superior e inferior */
+}
+
+.welcome-container p {
+  font-family: 'Medieval', sans-serif;
+  margin-bottom: 20px;
+  text-align: center; /* Asegurar que el párrafo esté centrado */
+}
+
+.welcome-container a {
+  display: block;
+  font-family: 'Medieval', sans-serif; /* Aplicar la fuente Medieval al enlace */
+  color: #ff0000; /* Color del enlace */
+  text-decoration: none; /* Sin subrayado */
+  transition: color 0.3s ease; /* Transición de color suave */
+  font-size: 3em; /* Ajusta el tamaño de la fuente según sea necesario */
+}
+
+.welcome-container a:hover {
+  color: #00ff22; /* Cambiar color al pasar el ratón */
+}
+

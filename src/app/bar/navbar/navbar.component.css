@@ -1,0 +1,38 @@
+/* Estilos para el navbar */
+.navbar {
+  background-color: #333; /* Color de fondo */
+  overflow: hidden; /* Para evitar el desbordamiento de contenido */
+  font-family: Arial, sans-serif; /* Fuente */
+  width: 100%; /* Asegura que ocupe el 100% del ancho */
+  box-sizing: border-box; /* Incluye el padding y border en el ancho total */
+}
+
+.navbar ul {
+  list-style-type: none; /* Eliminar el estilo de lista */
+  padding: 0; /* Eliminar el padding */
+  margin: 0; /* Eliminar el margin */
+  display: flex; /* Utilizar flexbox para los elementos de la lista */
+  justify-content: space-around; /* Distribuir los elementos de manera uniforme */
+}
+
+.navbar ul li {
+  display: inline; /* Mostrar los elementos en línea */
+}
+
+.navbar ul li a {
+  display: inline-block; /* Mostrar los enlaces en línea y como bloques */
+  color: #f2f2f2; /* Color del texto */
+  text-align: center; /* Centrar el texto */
+  padding: 14px 20px; /* Espaciado interno */
+  text-decoration: none; /* Eliminar el subrayado */
+}
+
+.navbar ul li a:hover {
+  background-color: #ddd; /* Color de fondo al pasar el ratón */
+  color: black; /* Color del texto al pasar el ratón */
+}
+
+.navbar ul li a.active {
+  background-color: #4CAF50; /* Color de fondo del enlace activo */
+  color: white; /* Color del texto del enlace activo */
+}

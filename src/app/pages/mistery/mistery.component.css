@@ -1,0 +1,106 @@
+:host {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(177, 0, 0);
+}
+
+.mistery-content {
+  position: relative;
+  text-align: center;
+}
+
+.star {
+  width: 30%;
+  height: auto;
+  filter: brightness(0) drop-shadow(0 0 10px rgba(255, 0, 0, 0.8)) drop-shadow(0 0 20px rgba(255, 0, 0, 0.6)) drop-shadow(0 0 30px rgba(255, 0, 0, 0.4));
+}
+
+.morse-pulse {
+  animation: morsePulse 0.3s;
+}
+
+@keyframes morsePulse {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.countdown p {
+  font-size: 1.5em;
+}
+
+.corner {
+  position: fixed;
+  font-size: 2rem;
+}
+
+.red {
+  color: black;
+  text-shadow:
+  0 0 10px rgba(255, 0, 0, 0.8),
+  0 0 20px rgba(255, 0, 0, 0.6),
+  0 0 30px rgba(255, 0, 0, 0.4);
+}
+
+.purple {
+  color: black;
+  text-shadow:
+  0 0 10px rgba(128, 0, 128, 0.8),
+  0 0 20px rgba(128, 0, 128, 0.6),
+  0 0 30px rgba(128, 0, 128, 0.4);
+}
+
+.green {
+  color: black;
+  text-shadow:
+  0 0 10px rgba(0, 100, 0, 0.8),
+  0 0 20px rgba(0, 100, 0, 0.6),
+  0 0 30px rgba(0, 100, 0, 0.4);
+}
+
+.yellow {
+  color: black;
+  text-shadow:
+  0 0 10px rgba(180, 120, 0, 0.8),
+  0 0 20px rgba(180, 120, 0, 0.6),
+  0 0 30px rgba(180, 120, 0, 0.4);
+}
+
+.top-left {
+  top: 10px;
+  left: 10px;
+}
+
+.top-right {
+  top: 1%;
+  right: 1%;
+}
+
+.bottom-left {
+  bottom: 10px;
+  left: 10px;
+}
+
+.bottom-right {
+  bottom: 10px;
+  right: 10px;
+}
+
+.label {
+  font-size: 2rem;
+}
+
+.countdown-item {
+  font-size: 3rem;
+}

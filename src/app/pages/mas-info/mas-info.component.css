@@ -1,0 +1,54 @@
+.qa-container {
+  max-width: 800px; /* Ancho máximo para el contenedor */
+  margin: auto; /* Centra el contenedor en la página */
+  padding: 20px;
+  border-radius: 6px; /* Bordes redondeados para suavizar el diseño */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Sombra ligera para profundidad */
+}
+
+
+.pregunta {
+  font-size: 1.1em; /* Tamaño de fuente ligeramente mayor */
+  font-weight: 600; /* Negrita ligera para destacar */
+  color: rgba(0, 0, 0, 0.8); /* Color de texto oscuro con opacidad */
+  padding: 8px 12px; /* Espaciado interno */
+  background-color: rgba(224, 224, 224, 0.7); /* Fondo gris claro con transparencia */
+  border-radius: 4px; /* Bordes redondeados */
+  position: relative; /* Necesario para posicionar el pseudoelemento */
+  margin: 0; /* Elimina el margen para conectarse con la respuesta */
+}
+
+.pregunta::before {
+  content: "P"; /* Contenido a insertar antes del texto */
+  position: absolute; /* Posiciona el pseudoelemento */
+  left: 10px; /* Espacio desde el borde izquierdo */
+  top: 50%; /* Centra verticalmente */
+  transform: translateY(-50%); /* Ajusta la alineación vertical */
+  font-size: 1.2em; /* Tamaño de la letra */
+  color: rgba(0, 0, 0, 0.6); /* Color de la letra */
+  font-weight: bold; /* Negrita para la letra */
+}
+
+.respuesta {
+  font-size: 1em; /* Tamaño de fuente normal */
+  color: rgba(0, 0, 0, 0.6); /* Color de texto gris oscuro con opacidad */
+  padding: 8px 12px; /* Espaciado interno */
+  background-color: rgba(249, 249, 249, 0.8); /* Fondo gris muy claro con opacidad */
+  border: 1px solid rgba(221, 221, 221, 0.8); /* Borde gris claro con opacidad */
+  border-radius: 4px; /* Bordes redondeados */
+  position: relative; /* Necesario para posicionar el pseudoelemento */
+  margin: 0; /* Elimina el margen para conectarse con la pregunta */
+  border-top: 1px solid rgba(221, 221, 221, 0.5); /* Separador sutil entre respuestas y preguntas */
+  margin-bottom: 20px;
+}
+
+.respuesta::before {
+  content: "R"; /* Contenido a insertar antes del texto */
+  position: absolute; /* Posiciona el pseudoelemento */
+  left: 10px; /* Espacio desde el borde izquierdo */
+  top: 50%; /* Centra verticalmente */
+  transform: translateY(-50%); /* Ajusta la alineación vertical */
+  font-size: 1.2em; /* Tamaño de la letra */
+  color: rgba(0, 0, 0, 0.6); /* Color de la letra */
+  font-weight: bold; /* Negrita para la letra */
+}

@@ -1,0 +1,19 @@
+<div class="tavern">
+    <!-- Condición para mostrar el contenido -->
+    @if (showPregonero) {
+      <img class="pregonero" src="/img/pregonero.png" alt="">
+
+    }@if (showBocadillo) {
+      <div class="bocadillo">
+        <p>{{ dialogText }}</p>
+      </div>
+      <div class="white-bocadillo">
+        <input type="text" [(ngModel)]="inputText" (keydown.enter)="onEnter()" placeholder="Escribe aquí..." class="invisible-input">
+      </div>
+        }
+
+        <div class="recordatorio">
+          <p (click)="refreshPage()">Volver</p>
+        </div>
+</div>
+  
