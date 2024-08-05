@@ -7,10 +7,12 @@
       <div class="bocadillo">
         <p>{{ dialogText }}</p>
       </div>
+      @if (showWhiteBocadillo) {
       <div class="white-bocadillo">
         <input type="text" [(ngModel)]="inputText" (keydown.enter)="onEnter()" placeholder="Escribe aquí..." class="invisible-input">
       </div>
-        }
+      }
+    }
 
         <div class="recordatorio">
           <p (click)="refreshPage()">Volver</p>

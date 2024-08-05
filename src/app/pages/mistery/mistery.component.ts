@@ -86,7 +86,7 @@ export class MisteryComponent implements OnInit, OnDestroy {
       if (char === '.') {
         sequence.push(unit);
       } else if (char === '-') {
-        sequence.push(unit * 3);
+        sequence.push(unit * 2.5);
       } else if (char === ' ') {
         sequence.push(space);
       }

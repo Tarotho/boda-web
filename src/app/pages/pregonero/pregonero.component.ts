@@ -19,6 +19,7 @@ export class PregoneroComponent implements OnInit, OnDestroy {
   inputText: string = '';
   showPregonero: boolean = false;
   showBocadillo: boolean = false;
+  showWhiteBocadillo: boolean = true;
 
   // Lista de frases prefijadas
   private paragraphs: string[] = [
@@ -96,7 +97,7 @@ export class PregoneroComponent implements OnInit, OnDestroy {
         this.dialogText = 'Imploro, no forceis mi lengua a desvelar secretos no deseados.';
       }
       if (this.attemptCount >= 9) {
-        this.showBocadillo = false;
+        this.showWhiteBocadillo = false;
         this.handleMaxAttempts();
       }
     }
@@ -139,6 +140,8 @@ export class PregoneroComponent implements OnInit, OnDestroy {
   }
 
   refreshPage() {
-    window.location.reload();
+    this.router.navigate(['/inicio']).then(() => {
+      window.location.reload();
+    });
   }
 }

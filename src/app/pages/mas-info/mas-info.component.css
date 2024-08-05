@@ -11,7 +11,7 @@
   font-size: 1.1em; /* Tamaño de fuente ligeramente mayor */
   font-weight: 600; /* Negrita ligera para destacar */
   color: rgba(0, 0, 0, 0.8); /* Color de texto oscuro con opacidad */
-  padding: 8px 12px; /* Espaciado interno */
+  padding: 8px 25px; /* Espaciado interno */
   background-color: rgba(224, 224, 224, 0.7); /* Fondo gris claro con transparencia */
   border-radius: 4px; /* Bordes redondeados */
   position: relative; /* Necesario para posicionar el pseudoelemento */
@@ -32,7 +32,7 @@
 .respuesta {
   font-size: 1em; /* Tamaño de fuente normal */
   color: rgba(0, 0, 0, 0.6); /* Color de texto gris oscuro con opacidad */
-  padding: 8px 12px; /* Espaciado interno */
+  padding: 8px 25px; /* Espaciado interno */
   background-color: rgba(249, 249, 249, 0.8); /* Fondo gris muy claro con opacidad */
   border: 1px solid rgba(221, 221, 221, 0.8); /* Borde gris claro con opacidad */
   border-radius: 4px; /* Bordes redondeados */
