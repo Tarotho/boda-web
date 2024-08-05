@@ -1,6 +1,7 @@
 # Etapa 1: Build
 FROM node:22-alpine3.19 AS build
 
+# RUN git pull
 # RUN git clone https://github.com/Tarotho/boda-web.git
 
 WORKDIR /app

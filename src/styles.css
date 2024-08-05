@@ -62,6 +62,8 @@ ul {
 h1 {
   font-family: 'OldLondon', sans-serif; /* Aplicar la fuente Medieval */
   text-align: center;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 .image {

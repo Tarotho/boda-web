@@ -36,3 +36,39 @@
   color: #00ff22; /* Cambiar color al pasar el ratón */
 }
 
+/* Media query para ajustar el tamaño del texto en pantallas pequeñas */
+@media (max-width: 600px) {
+  .welcome-container h1 {
+      font-size: 4em; /* Ajusta el tamaño de la fuente para pantallas pequeñas */
+  }
+
+  .welcome-container h2 {
+      font-size: 1.8em; /* Ajusta el tamaño de la fuente para pantallas pequeñas */
+  }
+
+  .welcome-container h3 {
+      font-size: 1.8em; /* Ajusta el tamaño de la fuente para pantallas pequeñas */
+  }
+
+  .welcome-container a {
+      font-size: 3em; /* Ajusta el tamaño de la fuente para pantallas pequeñas */
+  }
+}
+
+@media (max-width: 450px) {
+  .welcome-container h1 {
+      font-size: 3.5em; /* Ajusta el tamaño de la fuente para pantallas pequeñas */
+  }
+
+  .welcome-container h2 {
+      font-size: 1.5em; /* Ajusta el tamaño de la fuente para pantallas pequeñas */
+  }
+
+  .welcome-container h3 {
+      font-size: 1.2em; /* Ajusta el tamaño de la fuente para pantallas pequeñas */
+  }
+
+  .welcome-container a {
+      font-size: 3.5em; /* Ajusta el tamaño de la fuente para pantallas pequeñas */
+  }
+}

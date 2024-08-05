@@ -16,6 +16,7 @@ export const routes: Routes = [
     {path: 'contacto', component: ContactoComponent},
     {path: 'vestimenta', component: VestimentaComponent},
     {path: 'encuesta', component: EncuestaComponent},
-
-    { path: '', redirectTo: '/inicio', pathMatch: 'full' }
+    { path: 'encuesta.html', redirectTo: 'encuesta', pathMatch: 'full' },
+    { path: '', redirectTo: '/inicio', pathMatch: 'full' },
+    { path: '**', redirectTo: '/inicio', pathMatch: 'full' }
 ];
