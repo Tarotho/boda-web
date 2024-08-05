@@ -10,7 +10,7 @@ RUN mkdir -p /root/.ssh && chmod 700 /root/.ssh
 RUN echo "${SSH_PRIVATE_KEY}" > /root/.ssh/id_ed25519 && chmod 600 /root/.ssh/id_ed25519
 RUN echo "StrictHostKeyChecking no" > /root/.ssh/config
 RUN ssh-keyscan github.com >> /root/.ssh/known_hosts
-RUN git pull
+RUN git clone git@github.com:Tarotho/boda-web.git
 
 WORKDIR /app
 
