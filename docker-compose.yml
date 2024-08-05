@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  web:
+    image: boda-web:lastest
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        SSH_PRIVATE_KEY: ${SSH_PRIVATE_KEY}
+    stdin_open: true
+    tty: true
