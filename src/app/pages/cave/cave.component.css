@@ -147,11 +147,16 @@
   position: absolute;
 }
 
+/* Estilos generales para la imagen */
 .element-imagen {
   position: relative;
-  height: 500px;
-  width: auto;
+  width: 70%; /* Ajusta el ancho de la imagen al 50% del contenedor padre */
+  max-width: 500px;
+  height: auto; /* Mantiene la proporción de la imagen */
+  max-height: 90vh; /* Máximo del 90% de la altura de la ventana */
   left: 50%;
+  transform: translateX(-30%); /* Centra la imagen horizontalmente */
+  margin-top: 60px; /* Espaciado superior */
 }
 
 .candado-imagen {
