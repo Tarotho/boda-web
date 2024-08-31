@@ -150,7 +150,7 @@
 /* Estilos generales para la imagen */
 .element-imagen {
   position: relative;
-  width: 70%; /* Ajusta el ancho de la imagen al 50% del contenedor padre */
+  width: 100%; /* Ajusta el ancho de la imagen al 50% del contenedor padre */
   max-width: 500px;
   height: auto; /* Mantiene la proporción de la imagen */
   max-height: 90vh; /* Máximo del 90% de la altura de la ventana */
@@ -159,37 +159,33 @@
   margin-top: 60px; /* Espaciado superior */
 }
 
+/* Estilo para la imagen del candado */
 .candado-imagen {
-  position: relative;
-  height: auto;
-  width: 50%;
+  display: block; /* Hace que la imagen sea un bloque para aplicar márgenes automáticos */
+  margin: 0 auto; /* Centra la imagen horizontalmente */
+  width: 50%; /* Ancho de la imagen, ajustable según tus necesidades */
+  max-width: 500px; /* Tamaño máximo de la imagen */
+  height: auto; /* Mantiene la proporción de la imagen */
 }
 
-.password {
-  position: fixed;
-  top: 5%;
-  right: 5%;
-  width: 50%;
-  height: 30%;
-  max-height: 80px; /* Define una altura máxima pequeña */
-  background: rgba(255, 255, 255, 0.8); /* Fondo blanco con 80% de transparencia */
-  opacity: 80%;
-  color: #000; /* Color del texto en negro */
-  padding: 10px; /* Espaciado interno reducido */
-  box-sizing: border-box;
-  border-radius: 10px;
-  z-index: 10; /* Asegura que este bocadillo esté debajo del bocadillo negro */
+/* Estilo para los campos de entrada */
+.password-char {
+  width: 8%; /* Ancho relativo al ancho del contenedor */
+  height: 8%; /* Altura proporcional al ancho del contenedor */
+  text-align: center; /* Alineación de texto al centro */
+  font-size: 3%; /* Tamaño de fuente proporcional al ancho del contenedor */
+  border: 2px solid #ccc; /* Borde ligero para los campos de entrada */
+  border-radius: 8px; /* Bordes redondeados */
+  outline: none; /* Quitar el borde de enfoque predeterminado */
+  transition: border-color 0.3s, box-shadow 0.3s; /* Transición suave para el color del borde y la sombra */
+  background-color: #090606; /* Fondo claro para los campos de entrada */
+
 }
 
-.password input {
-  width: 100%;
-  padding: 5px;
-  border: none;
-  border-radius: 5px;
-  box-sizing: border-box;
-  background: transparent; /* Fondo transparente para el campo de entrada */
-  color: #000; /* Color del texto en el campo de entrada */
-  font-size: 40px;
+/* Estilo para el campo de entrada con enfoque */
+.password-char:focus {
+  border-color: #ff0000; /* Color de borde al enfocar */
+  box-shadow: 0 0 8px rgba(112, 1, 1, 0.5); /* Sombra de enfoque para destacar el campo */
 }
 
 /* Contenedor de advertencia */
@@ -266,9 +262,6 @@
   transform: scale(1.05);
 }
 
-
-
-
 /* cave.component.css */
 
 /* Asegura que el contenedor esté centrado */
@@ -297,12 +290,7 @@
   outline: none; /* Quitar el borde de enfoque predeterminado */
   transition: border-color 0.3s, box-shadow 0.3s; /* Transición suave para el color del borde y la sombra */
   background-color: #090606; /* Fondo claro para los campos de entrada */
-}
-
-/* Estilo para el campo de entrada con enfoque */
-.password-char:focus {
-  border-color: #007bff; /* Color de borde al enfocar */
-  box-shadow: 0 0 8px rgba(0, 123, 255, 0.5); /* Sombra de enfoque para destacar el campo */
+  color: red;
 }
 
 /* Mensaje de éxito o error */

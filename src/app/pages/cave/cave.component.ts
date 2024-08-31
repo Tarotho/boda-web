@@ -91,11 +91,22 @@ export class CaveComponent {
   }
 
   onInput(index: number) {
+    // Verificar si el campo actual está completo
+    if (this.inputText[index].length === 1) {
+      // Mover el enfoque al siguiente campo
+      const nextIndex = index + 1;
+      if (nextIndex < this.inputText.length) {
+        // Encuentra el siguiente campo de entrada y enfócalo
+        const nextInput = document.querySelectorAll('.password-char')[nextIndex] as HTMLInputElement;
+        if (nextInput) {
+          nextInput.focus();
+        }
+      }
 
-
-    // Verificar la contraseña cuando se llenen todos los campos
-    if (this.inputText.every(char => char.length === 1)) {
-      this.checkPassword();
+      // Verificar la contraseña cuando se llenen todos los campos
+      if (this.inputText.every(char => char.length === 1)) {
+        this.checkPassword();
+      }
     }
   }
 
