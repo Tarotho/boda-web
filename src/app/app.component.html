@@ -1,20 +1,49 @@
+<div class="warning-overlay" *ngIf="showWarning">
+  <div class="warning-card">
+    <h1>Estimada Maga suprema</h1>
+    <p>
+      Me siento orgullosa de darla la noticia de que el encantamiento para el cierre magico está terminado.
+      Es casi imposible de descifrar ya que requiere de un complejo galimatias linguistico para poder descubrirlo.
+    </p>
+    <p class="pista">_ | _ _ _ _</p>
+    <p class="pista">_ | _ _ _</p>
+    <p class="pista">_ | _ _ _</p>
+    <p class="pista">_ | _ _ _ _ _</p>
+    <p class="pista">_ | _ _ _ _ _</p>
+    <p class="pista">_ | _ _ _ _ _</p>
+    <p class="pista">_ | _ _ _ _ _ _ _</p>
+    <p>
+Dejo esta nota como recordatorio de su funcionamiento, solo espero que no se me estravíe.
+    </p>
+    <p class="signature">Una humilde servidora.</p>
+    <p>PD. ¿Cuál es el objeto por el cual nuestro novio se inició en las artes musicales?</p>
+    <button (click)="togglewarning()">Regresar</button>
+  </div>
+</div>
+
+
 @if (!pregonero) {
-  <audio id="background-audio" type="audio/mp3" src="/audio/TheShireAmbience.mp3" loop></audio>
+  <audio id="background-audio0" type="audio/mp3" src="/audio/TheShireAmbience.mp3" loop></audio>
   <app-navbar></app-navbar>
   <div class="info">
     <router-outlet></router-outlet>
   </div>
   <div class="town">
+
     <img class="button-image" src="/img/town.png" alt="" usemap="#image-map">
     <a class="images" (click)="togglePregonero()"></a>
-  </div>  
+    <a class="images2" (click)="togglewarning()"></a>
+    <a class="images3" routerLink="/cave"></a>
+
+  </div>
 } @else {
-@if (!mistery) {
-<audio id="background-audio" type="audio/mp3" src="/audio/CantinaBand.mp3" autoplay loop></audio>
-<app-pregonero (finishedStory)="handleFinishedStory()"/>
-}
-@else {
-<audio id="background-audio"  type="audio/mp3" src="/audio/Mistery.mp3" autoplay loop></audio>
-<app-mistery/>
-}
+  @if (!mistery) {
+    <audio id="background-audio1" type="audio/mp3" src="/audio/CantinaBand.mp3" autoplay loop></audio>
+    <app-pregonero (finishedStory)="handleFinishedStory()"/>
+  } @else {
+    <audio id="background-audio2" type="audio/mp3" src="/audio/Mistery.mp3" autoplay loop></audio>
+    <audio id="background-audio3" type="audio/mp3" src="/audio/magic-44027.mp3" autoplay loop></audio>
+
+    <app-mistery/>
+  }
 }

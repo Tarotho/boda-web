@@ -15,13 +15,12 @@ export class CaveComponent {
   showWarning = true; // Muestra el mensaje de advertencia inicialmente
 
   startText = true;
-  inputText = '';
+  inputText: string[] = Array(7).fill(''); // Array para los campos de entrada de contraseña
   startDialogueIndex: number = 0;
   navyDialogueIndex: number = 0; // Índice para el diálogo "navy"
   candado: boolean = false;
   navy: boolean = false;
   element: boolean = false;
-  passwordInput: string = '';
   passwordCorrect: boolean = false;
   successMessage: string = '';
 
@@ -44,7 +43,7 @@ export class CaveComponent {
     { id: 2, text: 'Quizas debererias investigar por todos lados, parece que necesitas conjurar algun tipo de palabra o yo que se.' },
     { id: 3, text: '¡Oye! pues mira, alguien debe haberse dejado algo aqui:' },
     { id: 4, text: '"¿Con qué objetos transportadores iguales de gran tamaño han tenido una terrible maldición nuestros dos intrépidos personajes?"'},
-    { id: 4, text: '¿Que significará?' }
+    { id: 5, text: '¿Que significará?' }
   ];
 
   constructor(private router: Router) { }
@@ -92,13 +91,26 @@ export class CaveComponent {
     }
   }
 
-  onEnter() {
-    if (this.passwordInput === 'hola') {
+  onInput(index: number) {
+    if (this.inputText[index] && index < 6) {
+      // Enfocar el siguiente campo automáticamente
+      (document.querySelectorAll('.password-char')[index + 1] as HTMLInputElement).focus();
+    }
+
+    // Verificar la contraseña cuando se llenen todos los campos
+    if (this.inputText.every(char => char.length === 1)) {
+      this.checkPassword();
+    }
+  }
+
+  checkPassword() {
+    const password = this.inputText.join('');
+    if (password === 'hola') {
       this.passwordCorrect = true;
       this.successMessage = '¡Felicidades!';
     } else {
       this.passwordCorrect = false;
-      this.successMessage = '';
+      this.successMessage = 'Contraseña incorrecta. Inténtalo de nuevo.';
     }
   }
 

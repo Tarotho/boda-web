@@ -33,3 +33,97 @@
   display: block;
   cursor: grab;
 }
+
+.images2 {
+  position: relative;
+  /* Ajusta estos valores para colocar y dimensionar el área clicable */
+  bottom: 13vw;    /* 10% del ancho de la pantalla desde la parte superior */
+  left: 86%;   /* Porcentaje desde la parte izquierda de la imagen */
+  width: 3%;  /* Ancho del área clicable */
+  height: 3vw; /* 20% del ancho de la pantalla para la altura */
+  /* Opcional: Si quieres ver el área clicable para ajustar la posición */
+  display: block;
+  cursor: grab;
+}
+
+.images3 {
+  position: relative;
+  /* Ajusta estos valores para colocar y dimensionar el área clicable */
+  bottom: 26vw;    /* 10% del ancho de la pantalla desde la parte superior */
+  left: 93%;   /* Porcentaje desde la parte izquierda de la imagen */
+  width: 10%;  /* Ancho del área clicable */
+  height: 6vw; /* 20% del ancho de la pantalla para la altura */
+  /* Opcional: Si quieres ver el área clicable para ajustar la posición */
+  display: block;
+  cursor: grab;
+}
+
+
+/* Estilos para el cartel de advertencia */
+.warning-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8); /* Fondo oscuro y semi-transparente */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50; /* Asegura que esté encima de todos los demás elementos */
+}
+
+.warning-card {
+  background: #fdf6e3; /* Fondo color pergamino */
+  color: #000; /* Texto negro */
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  width: 80%;
+  max-width: 600px;
+  border: 5px solid #5c3a21; /* Borde color madera */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.7); /* Sombra para dar profundidad */
+}
+
+.warning-card h1 {
+  font-family: 'Garamond', serif;
+  font-size: 2.5em;
+  margin-top: 0;
+  color: #3b2a1a; /* Color oscuro para el encabezado */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Sombra de texto para un efecto antiguo */
+}
+
+.warning-card p {
+  font-family: 'Times New Roman', serif;
+  font-size: 1.2em;
+  margin: 20px 0;
+  line-height: 1.6;
+}
+.pista{
+  text-align: left ;
+}
+
+.warning-card .signature {
+  font-family: 'Garamond', serif;
+  font-style: italic;
+  margin-top: 30px;
+  font-size: 1.2em; /* Tamaño de fuente más grande para la firma */
+}
+
+.warning-card button {
+  padding: 12px 25px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #6c4f28; /* Color de fondo marrón */
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Times New Roman', serif;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.warning-card button:hover {
+  background-color: #4a3a1c; /* Color más oscuro para el hover */
+  transform: scale(1.05); /* Efecto de escala para el hover */
+}
+

@@ -9,7 +9,7 @@
       Os exhorto a disfrutar de la aventura sin romper el hechizo. La curiosidad es valiosa, pero recordaréis que lo que se revela por medios insidiosos solo desvanecerá la esencia del juego y lo convertirá en una experiencia mundana.
     </p>
     <p class="signature">Con devoción y honor,<br>Vuestro amado príncipe<br>Sir Luis</p>
-    <button (click)="startGame()">Iniciar Aventura</button>
+    <button (click)="startGame()">OK, me portaré bien.</button>
   </div>
 </div>
 <div class="cave-container">
@@ -59,8 +59,15 @@
         <img class="candado-imagen" src="/img/candado.png" alt="">
 
         <div class="password">
-          <input class="invisible-input" type="text" [(ngModel)]="inputText" (keydown.enter)="onEnter()"
-                 placeholder="_ _ _ _ _ _ _">
+          <div class="password-inputs">
+            <input class="password-char" type="text" maxlength="1" [(ngModel)]="inputText[0]" (input)="onInput(0)" />
+            <input class="password-char" type="text" maxlength="1" [(ngModel)]="inputText[1]" (input)="onInput(1)" />
+            <input class="password-char" type="text" maxlength="1" [(ngModel)]="inputText[2]" (input)="onInput(2)" />
+            <input class="password-char" type="text" maxlength="1" [(ngModel)]="inputText[3]" (input)="onInput(3)" />
+            <input class="password-char" type="text" maxlength="1" [(ngModel)]="inputText[4]" (input)="onInput(4)" />
+            <input class="password-char" type="text" maxlength="1" [(ngModel)]="inputText[5]" (input)="onInput(5)" />
+            <input class="password-char" type="text" maxlength="1" [(ngModel)]="inputText[6]" (input)="onInput(6)" />
+          </div>
         </div>
       }
     }

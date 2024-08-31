@@ -3,11 +3,12 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 import { NavbarComponent } from "./bar/navbar/navbar.component";
 import { PregoneroComponent } from "./pages/pregonero/pregonero.component";
 import { MisteryComponent } from "./pages/mistery/mistery.component";
+import {NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, NavbarComponent, PregoneroComponent, MisteryComponent],
+  imports: [RouterOutlet, RouterLink, NavbarComponent, PregoneroComponent, MisteryComponent, NgIf],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'] // Asegúrate de usar 'styleUrls' en lugar de 'styleUrl'
 })
@@ -16,12 +17,16 @@ export class AppComponent {
 
   title = 'boda-web';
   pregonero = false;
+  showWarning = false;
   mistery = false;
 
   private interacted = false;
 
   togglePregonero(): void {
     this.pregonero = !this.pregonero;
+  }
+  togglewarning(): void {
+    this.showWarning = !this.showWarning;
   }
 
   handleFinishedStory(): void {

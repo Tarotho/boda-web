@@ -258,4 +258,46 @@
 }
 
 
+/* cave.component.css */
+
+/* Asegura que el contenedor esté centrado */
+.password {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+/* Contenedor de campos de entrada */
+.password-inputs {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Espacio entre campos de entrada */
+}
+
+/* Estilo para los campos de entrada */
+.password-char {
+  width: 40px; /* Ancho fijo para los campos de entrada */
+  height: 50px; /* Altura fija para los campos de entrada */
+  text-align: center; /* Alineación de texto al centro */
+  font-size: 24px; /* Tamaño de fuente para mayor visibilidad */
+  border: 2px solid #ccc; /* Borde ligero para los campos de entrada */
+  border-radius: 8px; /* Bordes redondeados */
+  outline: none; /* Quitar el borde de enfoque predeterminado */
+  transition: border-color 0.3s, box-shadow 0.3s; /* Transición suave para el color del borde y la sombra */
+  background-color: #090606; /* Fondo claro para los campos de entrada */
+}
+
+/* Estilo para el campo de entrada con enfoque */
+.password-char:focus {
+  border-color: #007bff; /* Color de borde al enfocar */
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.5); /* Sombra de enfoque para destacar el campo */
+}
+
+/* Mensaje de éxito o error */
+p {
+  margin-top: 10px;
+  font-size: 18px; /* Tamaño de fuente para el mensaje */
+  color: #333; /* Color del texto del mensaje */
+}
 
