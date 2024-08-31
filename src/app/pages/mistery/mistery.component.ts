@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
 import { interval, Subscription } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
@@ -19,12 +19,22 @@ export class MisteryComponent implements OnInit, OnDestroy {
   );
   countdownSubscription: Subscription | undefined;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private renderer: Renderer2) {}
 
   ngOnInit(): void {
     this.countdownSubscription = this.countdown$.subscribe();
-    this.startMorseAnimationWithInitialDelay('. ... .--. . .-. .-', 10000, 10000); 
-   }
+    this.startMorseAnimationWithInitialDelay('. ... .--. . .-. .-', 10000, 10000);
+
+    // Iniciar el temporizador de 3 segundos para el fundido a blanco
+    setTimeout(() => {
+      this.triggerFadeToWhite();
+    }, 3000); // Espera de 3 segundos
+
+    // Iniciar la animación de desvanecimiento y programar el refresco de la página
+    setTimeout(() => {
+      this.triggerFadeIn();
+    }, 3000); // Esto inicia después de 3 segundos, puedes ajustar el tiempo si es necesario
+  }
 
   ngOnDestroy(): void {
     if (this.countdownSubscription) {
@@ -37,7 +47,7 @@ export class MisteryComponent implements OnInit, OnDestroy {
     const timeDiff = this.targetDate.getTime() - now.getTime();
 
     if (timeDiff <= 0) {
-      this.handleCountdownFinished();
+      this.triggerFadeToWhite();
       return null;
     }
 
@@ -60,8 +70,26 @@ export class MisteryComponent implements OnInit, OnDestroy {
     return num.toString().split('').map(digit => devanagariDigits[parseInt(digit, 10)]).join('');
   }
 
-  private handleCountdownFinished(): void {
-    this.router.navigate(['/']);
+  private triggerFadeToWhite(): void {
+    // Añadir la clase de fade a white para el efecto
+    this.renderer.addClass(document.body, 'fade-to-white');
+
+    // Después de un segundo en blanco, redirigir a la ruta "/cave"
+    setTimeout(() => {
+      this.router.navigate(['/cave']);
+    }, 1000); // 1 segundo después del fundido a blanco
+  }
+
+  private triggerFadeIn(): void {
+    const image = document.querySelector('.overlay-image');
+    if (image) {
+      this.renderer.addClass(image, 'fade-in');
+
+      // Programar el refresco de la página después de 5 segundos
+      setTimeout(() => {
+        window.location.reload();
+      }, 5000); // 5 segundos después de iniciar el desvanecimiento
+    }
   }
 
   private startMorseAnimationWithInitialDelay(morseCode: string, initialDelay: number, repeatAfter: number): void {
@@ -76,8 +104,8 @@ export class MisteryComponent implements OnInit, OnDestroy {
   }
 
   private generateMorseAnimation(morseCode: string): number[] {
-    const unit = 400; // Duration of a dot or dash in ms
-    const space = 3000; // Space duration between symbols in ms
+    const unit = 400; // Duración de un punto o guion en ms
+    const space = 3000; // Duración del espacio entre símbolos en ms
     const pause = 50;
 
     let sequence: number[] = [];
@@ -119,7 +147,7 @@ export class MisteryComponent implements OnInit, OnDestroy {
         totalDuration += duration; // Adding space duration
       });
 
-      // Schedule the next repeat
+      // Programar la próxima repetición
       setTimeout(() => {
         animate();
       }, repeatAfter);

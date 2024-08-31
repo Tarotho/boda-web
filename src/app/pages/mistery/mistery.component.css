@@ -48,33 +48,33 @@
 .red {
   color: black;
   text-shadow:
-  0 0 10px rgba(255, 0, 0, 0.8),
-  0 0 20px rgba(255, 0, 0, 0.6),
-  0 0 30px rgba(255, 0, 0, 0.4);
+    0 0 10px rgba(255, 0, 0, 0.8),
+    0 0 20px rgba(255, 0, 0, 0.6),
+    0 0 30px rgba(255, 0, 0, 0.4);
 }
 
 .purple {
   color: black;
   text-shadow:
-  0 0 10px rgba(128, 0, 128, 0.8),
-  0 0 20px rgba(128, 0, 128, 0.6),
-  0 0 30px rgba(128, 0, 128, 0.4);
+    0 0 10px rgba(128, 0, 128, 0.8),
+    0 0 20px rgba(128, 0, 128, 0.6),
+    0 0 30px rgba(128, 0, 128, 0.4);
 }
 
 .green {
   color: black;
   text-shadow:
-  0 0 10px rgba(0, 100, 0, 0.8),
-  0 0 20px rgba(0, 100, 0, 0.6),
-  0 0 30px rgba(0, 100, 0, 0.4);
+    0 0 10px rgba(0, 100, 0, 0.8),
+    0 0 20px rgba(0, 100, 0, 0.6),
+    0 0 30px rgba(0, 100, 0, 0.4);
 }
 
 .yellow {
   color: black;
   text-shadow:
-  0 0 10px rgba(180, 120, 0, 0.8),
-  0 0 20px rgba(180, 120, 0, 0.6),
-  0 0 30px rgba(180, 120, 0, 0.4);
+    0 0 10px rgba(180, 120, 0, 0.8),
+    0 0 20px rgba(180, 120, 0, 0.6),
+    0 0 30px rgba(180, 120, 0, 0.4);
 }
 
 .top-left {
@@ -103,4 +103,21 @@
 
 .countdown-item {
   font-size: 3rem;
+}
+
+.overlay-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw; /* Asegura que la imagen ocupe toda la anchura de la ventana */
+  height: 100vh; /* Asegura que la imagen ocupe toda la altura de la ventana */
+  object-fit: cover; /* Mantiene la proporción de la imagen mientras cubre el contenedor */
+  z-index: 9999; /* Asegura que la imagen esté sobre otros contenidos */
+  pointer-events: none; /* Permite que los eventos del ratón pasen a través de la imagen */
+  opacity: 0; /* Inicialmente completamente transparente */
+  transition: opacity 5s ease-in-out; /* Transición de 5 segundos */
+}
+
+.overlay-image.fade-in {
+  opacity: 1; /* Cambia a completamente opaco cuando se aplica la clase 'fade-in' */
 }

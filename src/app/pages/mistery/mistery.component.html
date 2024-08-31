@@ -17,7 +17,7 @@
   </div>
 
   <div class="countdown morse-pulse">
-    <ng-container *ngIf="(countdown$ | async) as countdown; else countdownFinished">
+    <ng-container *ngIf="(countdown$ | async) as countdown;">
       <p>
         <span class="countdown-item green morse-pulse">{{ countdown.minutes }}</span>
         <span class="countdown-item red morse-pulse">{{ countdown.days }}</span>
@@ -25,8 +25,9 @@
         <span class="countdown-item yellow morse-pulse">{{ countdown.hours }}</span>
       </p>
     </ng-container>
-    <ng-template #countdownFinished>
-      <p>La cuenta atrás ha terminado.</p>
-    </ng-template>
   </div>
 </div>
+
+<!-- Imagen que cubre toda la pantalla -->
+<img class="overlay-image" src="/img/portal.png" alt="Overlay Image">
+

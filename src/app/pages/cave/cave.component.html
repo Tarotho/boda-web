@@ -1,0 +1,75 @@
+
+<div class="warning-overlay" *ngIf="showWarning">
+  <div class="warning-card">
+    <h1>¡Atención, Valientes!</h1>
+    <p>
+      En nombre del reino y de la magia ancestral que aquí reside, se hace saber que a partir de este instante, está terminantemente prohibido el uso de herramientas de inspección en esta página. Aunque muchos secretos y misterios se hallen ocultos en sus profundidades, el descubrimiento de los mismos mediante estos medios no hará sino desvelar la magia que encierra esta experiencia.
+    </p>
+    <p>
+      Os exhorto a disfrutar de la aventura sin romper el hechizo. La curiosidad es valiosa, pero recordaréis que lo que se revela por medios insidiosos solo desvanecerá la esencia del juego y lo convertirá en una experiencia mundana.
+    </p>
+    <p class="signature">Con devoción y honor,<br>Vuestro amado príncipe<br>Sir Luis</p>
+    <button (click)="startGame()">Iniciar Aventura</button>
+  </div>
+</div>
+<div class="cave-container">
+  <div class="background-image">
+    @if (startText) {
+      <!-- Bocadillo de diálogo para los primeros tres -->
+      <div
+        *ngIf="startDialogueIndex < 3 && getCurrentDialogue()"
+        class="dialogue"
+        [ngClass]="{
+        'dialogue-1': startDialogueIndex === 0,
+        'dialogue-2': startDialogueIndex === 1,
+        'dialogue-3': startDialogueIndex === 2
+      }"
+        (click)="advanceDialogue()">
+        <p>{{ getCurrentDialogue().text }}</p>
+      </div>
+
+      <!-- Bocadillo de diálogo para los diálogos a partir del cuarto -->
+      <div
+        *ngIf="startDialogueIndex >= 3 && getCurrentDialogue()"
+        class="dialogue-separate"
+        [ngClass]="{
+        'dialogue-centered': startDialogueIndex >= 3
+      }"
+        (click)="advanceDialogue()">
+        <p>{{ getCurrentDialogue().text }}</p>
+      </div>
+    } @else {
+
+      <!-- Elementos interactivos en el contenedor -->
+      <a class="candado" (click)="toggleCandado()"></a>
+      <a class="navy" (click)="toggleNavy()"></a>
+      <a class="element" [ngClass]="{'disabled': startText}" (click)="startText ? null : toggleElement()">
+      </a>
+
+      <!-- Nuevo diálogo al activar navy -->
+      <div *ngIf="navy && getCurrentNavyDialogue()" class="dialogue-separate" (click)="advanceNavyDialogue()">
+        <p>{{ getCurrentNavyDialogue().text }}</p>
+      </div>
+
+      @if (element) {
+        <img class="element-imagen" src="/img/prueba1.png" alt="">
+      }
+
+      @if (candado) {
+        <img class="candado-imagen" src="/img/candado.png" alt="">
+
+        <div class="password">
+          <input class="invisible-input" type="text" [(ngModel)]="inputText" (keydown.enter)="onEnter()"
+                 placeholder="_ _ _ _ _ _ _">
+        </div>
+      }
+    }
+
+    <!-- Imagen siempre visible -->
+    <img class="prueba1 siempre-visible" src="/img/prueba1.png" alt="">
+
+  </div>
+  <div class="recordatorio">
+    <p (click)="refreshPage()">Volver</p>
+  </div>
+</div>
