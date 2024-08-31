@@ -11,7 +11,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: url('/img/misteryBackground.jpg') no-repeat center center;
+  background: url('/img/misteryBackground2.png') no-repeat center center;
   background-size: cover;
   z-index: 10;
 }
@@ -99,6 +99,7 @@
   position: absolute; /* Para poder posicionarlo respecto al contenedor padre */
   display: block;
   cursor: grab;
+  z-index: 100;
 }
 
 .navy {
@@ -110,6 +111,7 @@
   position: absolute; /* Para poder posicionarlo respecto al contenedor padre */
   display: block;
   cursor: grab;
+  z-index: 100;
 }
 
 .siempre-visible {
@@ -125,7 +127,7 @@
 
 .element.disabled {
   pointer-events: none; /* Deshabilita la interacción con el elemento hasta que startText sea false */
-  opacity: 0.5; /* Da un aspecto visual de desactivado */
+  opacity: 0; /* Da un aspecto visual de desactivado */
 }
 
 .element {
@@ -138,15 +140,8 @@
   display: block;
   cursor: grab;
   overflow: hidden;
-  z-index: 10;
+  z-index: 100;
 }
-
-.element img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
 
 .password-container {
   position: absolute;

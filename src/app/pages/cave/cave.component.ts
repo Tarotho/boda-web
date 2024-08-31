@@ -41,7 +41,7 @@ export class CaveComponent {
     { id: 1, text: '¿por que me hablas? Yo tengo poco que decirte' },
     { id: 2, text: 'Quizas debererias investigar por todos lados, parece que necesitas conjurar algun tipo de palabra o yo que se.' },
     { id: 3, text: '¡Oye! pues mira, alguien debe haberse dejado algo aqui:' },
-    { id: 4, text: '"¿Con qué máquinas motorizadas de gran tamaño han tenido una terrible maldición nuestros dos intrépidos comprometidos?"' },
+    { id: 4, text: '"हमारे दो निडर मंगेतरों को कौन सी बड़ी मोटर चालित मशीनें बुरी तरह से अभिशापित कर दी गई हैं?"' },
     { id: 5, text: '¿Que significará?' }
   ];
 
@@ -91,10 +91,7 @@ export class CaveComponent {
   }
 
   onInput(index: number) {
-    if (this.inputText[index] && index < 6) {
-      // Enfocar el siguiente campo automáticamente
-      (document.querySelectorAll('.password-char')[index + 1] as HTMLInputElement).focus();
-    }
+
 
     // Verificar la contraseña cuando se llenen todos los campos
     if (this.inputText.every(char => char.length === 1)) {

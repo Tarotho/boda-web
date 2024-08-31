@@ -43,8 +43,7 @@
       <!-- Elementos interactivos en el contenedor -->
       <a class="candado" (click)="toggleCandado()"></a>
       <a class="navy" (click)="toggleNavy()"></a>
-      <a class="element" [ngClass]="{'disabled': startText}" (click)="startText ? null : toggleElement()">
-      </a>
+      <a class="element" (click)="toggleElement()"></a>
 
       <!-- Nuevo diálogo al activar navy -->
       <div *ngIf="navy && getCurrentNavyDialogue()" class="dialogue-separate" (click)="advanceNavyDialogue()">
@@ -71,9 +70,6 @@
         </div>
       }
     }
-
-    <!-- Imagen siempre visible -->
-    <img class="prueba1 siempre-visible" src="/img/prueba1.png" alt="">
 
   </div>
   <div class="recordatorio">
