@@ -187,7 +187,7 @@
   font-size: 40px;
 }
 
-/* Estilos para el cartel de advertencia */
+/* Contenedor de advertencia */
 .warning-overlay {
   position: fixed;
   top: 0;
@@ -199,58 +199,69 @@
   align-items: center;
   justify-content: center;
   z-index: 50; /* Asegura que esté encima de todos los demás elementos */
+  padding: 2%; /* Añade un pequeño padding proporcional */
+  box-sizing: border-box;
 }
 
+/* Tarjeta de advertencia */
 .warning-card {
   background: #fdf6e3; /* Fondo color pergamino */
   color: #000; /* Texto negro */
-  padding: 30px;
-  border-radius: 15px;
+  padding: 2%; /* Padding en porcentaje para mantener la proporción */
+  border-radius: 2%; /* Radio de borde en porcentaje */
   text-align: center;
-  width: 80%;
-  max-width: 600px;
-  border: 5px solid #5c3a21; /* Borde color madera */
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.7); /* Sombra para dar profundidad */
+  width: 80%; /* Ancho relativo al contenedor */
+  height: auto; /* Altura automática para mantener proporción del contenido */
+  max-height: 90%; /* Limita la altura máxima al 90% de la pantalla */
+  border: 0.5vw solid #5c3a21; /* Borde proporcional al ancho de la vista */
+  box-shadow: 0 0 5vw rgba(0, 0, 0, 0.7); /* Sombra proporcional al ancho de la vista */
+  box-sizing: border-box;
+  overflow-y: auto; /* Permite el desplazamiento si el contenido es demasiado grande */
 }
 
+/* Estilo de encabezado */
 .warning-card h1 {
   font-family: 'Garamond', serif;
-  font-size: 2.5em;
+  font-size: 2rem; /* Tamaño de fuente fijo para mantener consistencia */
   margin-top: 0;
-  color: #3b2a1a; /* Color oscuro para el encabezado */
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Sombra de texto para un efecto antiguo */
+  color: #3b2a1a;
+  text-shadow: 0.1rem 0.1rem 0.2rem rgba(0, 0, 0, 0.5); /* Sombra proporcional */
 }
 
+/* Estilo de párrafo */
 .warning-card p {
   font-family: 'Times New Roman', serif;
-  font-size: 1.2em;
-  margin: 20px 0;
+  font-size: 1.2rem; /* Tamaño de fuente fijo */
+  margin: 1% 0;
   line-height: 1.6;
 }
 
+/* Firma del mensaje */
 .warning-card .signature {
   font-family: 'Garamond', serif;
   font-style: italic;
-  margin-top: 30px;
-  font-size: 1.2em; /* Tamaño de fuente más grande para la firma */
+  margin-top: 5%;
+  font-size: 1.2rem; /* Tamaño de fuente fijo */
 }
 
+/* Estilo de botón */
 .warning-card button {
-  padding: 12px 25px;
-  font-size: 16px;
+  padding: 1% 2%; /* Padding proporcional al tamaño del botón */
+  font-size: 1rem; /* Tamaño de fuente fijo */
   cursor: pointer;
-  background-color: #6c4f28; /* Color de fondo marrón */
+  background-color: #6c4f28;
   color: #fff;
   border: none;
-  border-radius: 8px;
-  font-family: 'Times New Roman', serif;
+  border-radius: 1%; /* Radio de borde proporcional */
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .warning-card button:hover {
-  background-color: #4a3a1c; /* Color más oscuro para el hover */
-  transform: scale(1.05); /* Efecto de escala para el hover */
+  background-color: #4a3a1c;
+  transform: scale(1.05);
 }
+
+
 
 
 /* cave.component.css */
