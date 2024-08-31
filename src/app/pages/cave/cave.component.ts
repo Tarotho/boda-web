@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
@@ -13,7 +13,6 @@ import { Router } from '@angular/router';
 })
 export class CaveComponent {
   showWarning = true; // Muestra el mensaje de advertencia inicialmente
-
   startText = true;
   inputText: string[] = Array(7).fill(''); // Array para los campos de entrada de contraseña
   startDialogueIndex: number = 0;
@@ -38,11 +37,11 @@ export class CaveComponent {
     { id: 11, text: 'Por favor, no te olvides de mi!' }
   ];
 
-  navyDialogues = [ // Frases para el diálogo de "navy"
+  navyDialogues = [
     { id: 1, text: '¿por que me hablas? Yo tengo poco que decirte' },
     { id: 2, text: 'Quizas debererias investigar por todos lados, parece que necesitas conjurar algun tipo de palabra o yo que se.' },
     { id: 3, text: '¡Oye! pues mira, alguien debe haberse dejado algo aqui:' },
-    { id: 4, text: '"¿Con qué objetos transportadores iguales de gran tamaño han tenido una terrible maldición nuestros dos intrépidos personajes?"'},
+    { id: 4, text: '"¿Con qué máquinas motorizadas de gran tamaño han tenido una terrible maldición nuestros dos intrépidos comprometidos?"' },
     { id: 5, text: '¿Que significará?' }
   ];
 
@@ -122,5 +121,14 @@ export class CaveComponent {
 
   startGame() {
     this.showWarning = false;  // Ocultar el mensaje de advertencia y comenzar el juego
+  }
+
+  @HostListener('document:keydown.enter', ['$event'])
+  handleKeyboardEvent(event: KeyboardEvent) {
+    if (this.startText) {
+      this.advanceDialogue();
+    } else if (this.navy) {
+      this.advanceNavyDialogue();
+    }
   }
 }

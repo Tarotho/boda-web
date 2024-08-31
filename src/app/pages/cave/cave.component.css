@@ -154,8 +154,8 @@
 
 .element-imagen {
   position: relative;
-  height: auto;
-  width: 50%;
+  height: 500px;
+  width: auto;
   left: 50%;
 }
 
