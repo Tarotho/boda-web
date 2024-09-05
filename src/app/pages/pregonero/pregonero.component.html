@@ -1,18 +1,30 @@
-<div *ngIf="!mistery" class="tavern">
-  <audio id="background-audio1" type="audio/mp3" src="/audio/CantinaBandEnd.mp3" autoplay></audio>
-
-  <!-- Condición para mostrar el contenido -->
-  <img *ngIf="showPregonero" class="pregonero" src="/img/pregonero.png" alt="">
-
-  <div *ngIf="showBocadillo" class="bocadillo">
-    <p>{{ dialogText }}</p>
+<div class="tavern">
+  <div class="warning-overlay" *ngIf="note">
+    <div class="warning-card">
+      <h1>प्रिय सर्वोच्च जादूगर</h1>
+      <p>
+        मुझे यह खबर सुनाते हुए गर्व हो रहा है कि जादुई समापन के लिए मंत्र समाप्त हो गया है।
+        इसे समझना लगभग असंभव है क्योंकि इसे खोजने के लिए जटिल भाषाई अस्पष्टता की आवश्यकता होती है।
+      </p>
+      <p class="pista">_ | _ _ _ _</p>
+      <p class="pista">_ | _ _ _</p>
+      <p class="pista">_ | _ _ _</p>
+      <p class="pista">_ | _ _ _ _ _</p>
+      <p class="pista">_ | _ _ _ _ _</p>
+      <p class="pista">_ | _ _ _ _ _</p>
+      <p class="pista">_ | _ _ _ _ _ _ _</p><br>
+      <p>
+        मैं इस नोट को एक अनुस्मारक के रूप में छोड़ता हूं कि यह कैसे काम करता है, मैं बस आशा करता हूं कि यह खो न जाए। </p>
+      <p class="signature">एक विनम्र सेवक.</p>
+      <p>पी.एस. हमारे प्रिय ने संगीत की कला की शुरुआत किस तत्व से की?</p>
+      <button (click)="toggleNote()">Regresar</button>
+    </div>
   </div>
+  <audio id="background-audio1" type="audio/mp3" src="/audio/CantinaEmpty.mp3" autoplay loop></audio>
 
   <div class="recordatorio">
     <p (click)="refreshPage()">Volver</p>
+    <a class="note" (click)="toggleNote()"></a>
+    <a class="cubo" (click)="toggleCubo()"></a>
   </div>
 </div>
-
-@if (mistery) {
-  <app-mistery *ngIf="mistery"/>
-}
