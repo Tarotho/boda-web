@@ -1,5 +1,5 @@
 import { Component, HostListener } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import {Router, RouterLink, RouterOutlet} from '@angular/router';
 import { NavbarComponent } from "./bar/navbar/navbar.component";
 import { PregoneroComponent } from "./pages/pregonero/pregonero.component";
 import { MisteryComponent } from "./pages/mistery/mistery.component";
@@ -14,23 +14,24 @@ import {NgIf} from "@angular/common";
 })
 export class AppComponent {
 
+  constructor(private router: Router) {
+  }
 
   title = 'boda-web';
-  pregonero = false;
   showWarning = false;
-  mistery = false;
+  cave = false;
 
   private interacted = false;
 
   togglePregonero(): void {
-    this.pregonero = !this.pregonero;
+    this.router.navigate(['/taberna'])
+  }
+
+  toggleCave(): void {
+    this.router.navigate(['/cave'])
   }
   togglewarning(): void {
     this.showWarning = !this.showWarning;
-  }
-
-  handleFinishedStory(): void {
-    this.mistery = true;
   }
 
   @HostListener('window:click', ['$event'])

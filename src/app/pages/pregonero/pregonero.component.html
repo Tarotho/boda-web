@@ -1,22 +1,18 @@
-<div class="tavern">
-  <!-- Condición para mostrar el contenido -->
-  @if (showPregonero) {
-    <img class="pregonero" src="/img/pregonero.png" alt="">
+<div *ngIf="!mistery" class="tavern">
+  <audio id="background-audio1" type="audio/mp3" src="/audio/CantinaBandEnd.mp3" autoplay></audio>
 
-  }
-  @if (showBocadillo) {
-    <div class="bocadillo">
-      <p>{{ dialogText }}</p>
-    </div>
-    @if (showWhiteBocadillo) {
-      <div class="white-bocadillo">
-        <input type="text" [(ngModel)]="inputText" (keydown.enter)="onEnter()" placeholder="Escribe aquí..."
-               class="invisible-input">
-      </div>
-    }
-  }
+  <!-- Condición para mostrar el contenido -->
+  <img *ngIf="showPregonero" class="pregonero" src="/img/pregonero.png" alt="">
+
+  <div *ngIf="showBocadillo" class="bocadillo">
+    <p>{{ dialogText }}</p>
+  </div>
 
   <div class="recordatorio">
     <p (click)="refreshPage()">Volver</p>
   </div>
 </div>
+
+@if (mistery) {
+  <app-mistery *ngIf="mistery"/>
+}

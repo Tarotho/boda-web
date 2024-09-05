@@ -59,39 +59,3 @@ html, body {
   border-radius: 10px;
   z-index: 20; /* Asegura que este bocadillo esté encima de otros elementos */
 }
-
-.white-bocadillo {
-  position: relative;
-  top: 5%;
-  left: 5%;
-  width: 50%;
-  height: 30%;
-  max-height: 80px; /* Define una altura máxima pequeña */
-  background: rgba(255, 255, 255, 0.8); /* Fondo blanco con 80% de transparencia */
-  opacity: 80%;
-  color: #000; /* Color del texto en negro */
-  padding: 10px; /* Espaciado interno reducido */
-  box-sizing: border-box;
-  border-radius: 10px;
-  z-index: 10; /* Asegura que este bocadillo esté debajo del bocadillo negro */
-}
-
-.white-bocadillo input {
-  width: 100%;
-  padding: 5px;
-  border: none;
-  border-radius: 5px;
-  box-sizing: border-box;
-  background: transparent; /* Fondo transparente para el campo de entrada */
-  color: #000; /* Color del texto en el campo de entrada */
-}
-
-.invisible-input {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 100;
-  cursor: text;
-}
