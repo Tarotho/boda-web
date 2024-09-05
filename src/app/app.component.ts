@@ -19,16 +19,18 @@ export class AppComponent {
 
   title = 'boda-web';
   showWarning = false;
-  cave = false;
+  main = true
 
   private interacted = false;
 
   togglePregonero(): void {
     this.router.navigate(['/taberna'])
+    this.main = false;
   }
 
   toggleCave(): void {
     this.router.navigate(['/cave'])
+    this.main = false;
   }
   togglewarning(): void {
     this.showWarning = !this.showWarning;

@@ -34,10 +34,10 @@ html, body {
 
 .note {
   position: absolute; /* O usa 'fixed' si quieres que se quede en el centro incluso cuando hagas scroll */
-  bottom: 50%;
-  left: 50%;
-  width: 40vw;
-  height: 58px;
+  bottom: 50vw;
+  left: 24%;
+  width: 3%;
+  height: 4vw;
   /* Ajusta el margen negativo para centrar el elemento */
   display: block;
   cursor: grab;
@@ -47,10 +47,10 @@ html, body {
 
 .cubo {
   position: absolute; /* O usa 'fixed' si quieres que se quede en el centro incluso cuando hagas scroll */
-  bottom: 400px;
-  left: 430px;
-  width: 100px;
-  height: 100px;
+  bottom: 32vw;
+  left: 34%;
+  width: 6%;
+  height: 6vw;
   /* Ajusta el margen negativo para centrar el elemento */
   display: block;
   cursor: grab;

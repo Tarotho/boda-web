@@ -19,16 +19,16 @@
     <button (click)="togglewarning()">Regresar</button>
   </div>
 </div>
-
+<div >
   <audio id="background-audio0" type="audio/mp3" src="/audio/TheShireAmbience.mp3" loop></audio>
   <app-navbar></app-navbar>
   <div class="info">
     <router-outlet></router-outlet>
   </div>
   <div class="town">
-
     <img class="button-image" src="/img/pueblo.png" alt="" usemap="#image-map">
     <a class="images" (click)="togglePregonero()"></a>
     <a class="images2" (click)="togglewarning()"></a>
     <a class="images3" (click)="toggleCave()"></a>
   </div>
+</div>
