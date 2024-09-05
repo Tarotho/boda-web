@@ -5,6 +5,7 @@
 
 # Actualizar el repositorio con la última versión del código
 echo "Actualizando el repositorio..."
+git checkout master
 git pull
 
 # Construir las imágenes de Docker sin usar caché
