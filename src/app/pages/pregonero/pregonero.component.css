@@ -41,9 +41,18 @@ html, body {
   /* Ajusta el margen negativo para centrar el elemento */
   display: block;
   cursor: grab;
-  background-color: red;
 }
 
+.prueba {
+  position: relative;
+  width: 100%; /* Ajusta el ancho de la imagen al 50% del contenedor padre */
+  max-width: 500px;
+  height: auto; /* Mantiene la proporción de la imagen */
+  max-height: 90vh; /* Máximo del 90% de la altura de la ventana */
+  left: 50%;
+  transform: translateX(-30%); /* Centra la imagen horizontalmente */
+  margin-top: 60px; /* Espaciado superior */
+}
 
 .cubo {
   position: absolute; /* O usa 'fixed' si quieres que se quede en el centro incluso cuando hagas scroll */
@@ -54,7 +63,6 @@ html, body {
   /* Ajusta el margen negativo para centrar el elemento */
   display: block;
   cursor: grab;
-  background-color: blue;
 }
 
 @media (max-width: 100vh){

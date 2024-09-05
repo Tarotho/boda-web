@@ -1,24 +1,19 @@
 <div class="tavern">
   <div class="warning-overlay" *ngIf="note">
     <div class="warning-card">
-      <h1>प्रिय सर्वोच्च जादूगर</h1>
-      <p>
-        मुझे यह खबर सुनाते हुए गर्व हो रहा है कि जादुई समापन के लिए मंत्र समाप्त हो गया है।
-        इसे समझना लगभग असंभव है क्योंकि इसे खोजने के लिए जटिल भाषाई अस्पष्टता की आवश्यकता होती है।
-      </p>
-      <p class="pista">_ | _ _ _ _</p>
-      <p class="pista">_ | _ _ _</p>
-      <p class="pista">_ | _ _ _</p>
-      <p class="pista">_ | _ _ _ _ _</p>
-      <p class="pista">_ | _ _ _ _ _</p>
-      <p class="pista">_ | _ _ _ _ _</p>
-      <p class="pista">_ | _ _ _ _ _ _ _</p><br>
-      <p>
-        मैं इस नोट को एक अनुस्मारक के रूप में छोड़ता हूं कि यह कैसे काम करता है, मैं बस आशा करता हूं कि यह खो न जाए। </p>
-      <p class="signature">एक विनम्र सेवक.</p>
-      <p>पी.एस. हमारे प्रिय ने संगीत की कला की शुरुआत किस तत्व से की?</p>
+      <h1>A quien lea estas palabras:</h1>
+      <p>Oh, noble héroe, como os anuncié, he decidido ocultarme en la aldea, pues presiento un oscuro mal que acecha. </p>
+      <p>Todo se ha tornado más inquietante tras hallar aquella extraña piedra en el umbral de la taberna.</p>
+      <p>Ignorando su propósito, la arrojé a la hoguera de la chimenea, esperando que ardiera junto a mis dudas.</p>
+      <p>Mas aún así, temo por lo que vendrá y por ello he de marchar a refugiarme entre los aldeanos.</p>
+      <p>Si precisáis de mi ayuda, buscadme entre las sombras del pueblo.</p>
+      <p>Vuestro en lealtad,</p>
+      <p>Gerald</p>
       <button (click)="toggleNote()">Regresar</button>
     </div>
+  </div>
+  <div *ngIf="cubo">
+    <img class="prueba" src="/img/prueba2.png" alt="">
   </div>
   <audio id="background-audio1" type="audio/mp3" src="/audio/CantinaEmpty.mp3" autoplay loop></audio>
 

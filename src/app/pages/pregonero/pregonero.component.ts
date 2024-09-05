@@ -26,8 +26,10 @@ export class PregoneroComponent {
 
   toggleNote(){
     this.note = !this.note;
+    this.cubo = false;
   }
   toggleCubo(){
     this.cubo = !this.cubo;
+    this.note = false;
   }
 }
