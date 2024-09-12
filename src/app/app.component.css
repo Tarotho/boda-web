@@ -10,57 +10,107 @@
   color: #000000; /* Color del texto */
   margin: 0; /* Eliminar el margen */
 }
+
 .info {
-  min-height:700px;
+  min-height: 700px;
 }
 
-.town img {
+.pista {
+  text-align: left;
+}
+
+.bigPregonero {
+  z-index: 4;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: auto;
+  height: auto;
+  max-height: 70vh;
+  max-width: 70vw; /* Ajuste para evitar que sea más ancho que el 50% del viewport */
+}
+
+.bocadillo {
+  position: fixed;
+  top: 3%; /* Posiciona el bocadillo negro a 10% desde la parte superior */
+  left: 5%;
+  width: 90%;
+  height: auto;
+  background: rgba(0, 0, 0, 0.9); /* Fondo negro con 50% de transparencia */
+  color: #fff;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  z-index: 20; /* Asegura que este bocadillo esté encima de otros elementos */
+}
+
+
+.town {
   position: relative;
+  z-index: 2; /* Nivel de apilamiento superior */
   bottom: 0;
   right: 0;
   width: 100%; /* Ajusta el tamaño según tus necesidades */
   height: auto;
+  pointer-events: none; /* Deshabilita los eventos de puntero */
 }
 
 .images {
-  position: relative;
-  /* Ajusta estos valores para colocar y dimensionar el área clicable */
-  bottom: 14vw;    /* 10% del ancho de la pantalla desde la parte superior */
-  left: 9%;   /* Porcentaje desde la parte izquierda de la imagen */
-  width: 2%;  /* Ancho del área clicable */
-  height: 6vw; /* 20% del ancho de la pantalla para la altura */
-  /* Opcional: Si quieres ver el área clicable para ajustar la posición */
+  position: fixed;
+  bottom: 8vw;
+  left: 9%;
+  width: 2%;
+  height: 6vw;
   display: block;
   cursor: grab;
+  z-index: 3;
 }
 
 .images2 {
-  position: relative;
-  /* Ajusta estos valores para colocar y dimensionar el área clicable */
-  bottom: 13vw;    /* 10% del ancho de la pantalla desde la parte superior */
-  left: 86%;   /* Porcentaje desde la parte izquierda de la imagen */
-  width: 3%;  /* Ancho del área clicable */
-  height: 3vw; /* 20% del ancho de la pantalla para la altura */
-  /* Opcional: Si quieres ver el área clicable para ajustar la posición */
+  position: fixed;
+  bottom: 5vw;
+  left: 86%;
+  width: 3%;
+  height: 3vw;
   display: block;
   cursor: grab;
+  z-index: 3;
 }
 
 .images3 {
-  position: relative;
-  /* Ajusta estos valores para colocar y dimensionar el área clicable */
-  bottom: 26vw;    /* 10% del ancho de la pantalla desde la parte superior */
-  left: 93%;   /* Porcentaje desde la parte izquierda de la imagen */
-  width: 10%;  /* Ancho del área clicable */
-  height: 6vw; /* 20% del ancho de la pantalla para la altura */
-  /* Opcional: Si quieres ver el área clicable para ajustar la posición */
+  position: fixed;
+  bottom: 11vw;
+  left: 93%;
+  width: 10%;
+  height: 6vw;
   display: block;
   cursor: grab;
+  z-index: 3;
 }
 
-.pista{
-  text-align: left ;
+@keyframes bouncePregonero {
+  0%, 19%, 100% {
+    transform: translateY(0);
+    pointer-events: none; /* Deshabilitar clic fuera del rango */
+  }
+  7%, 12% {
+    transform: translateY(-3vw);
+    pointer-events: auto; /* Habilitar clic en el rango deseado */
+  }
 }
 
+.hiddenPregonero {
+  position: relative;
+  bottom: -9vw;
+  rotate: -45deg;
+  left: 57%;
+  width: 5%;
+  height: auto;
+  display: block;
+  animation: bouncePregonero 10s infinite;
+  cursor: grab;
+  z-index: 1;
+  will-change: transform;
+}
 
 

@@ -1,3 +1,14 @@
+<div *ngIf="pregonero">
+  <audio id="background-audio1" type="audio/mp3" src="/audio/CantinaBand.mp3" autoplay></audio>
+
+  <!-- Condición para mostrar el contenido -->
+  <img class="bigPregonero" src="/img/pregonero.png" alt="">
+
+  <div *ngIf="showBocadillo" class="bocadillo">
+    <p>{{ dialogText }}</p>
+  </div>
+
+</div>
 <div class="warning-overlay" *ngIf="showWarning">
   <div class="warning-card">
     <h1>प्रिय सर्वोच्च जादूगर</h1>
@@ -13,22 +24,25 @@
     <p class="pista">_ | _ _ _ _ _</p>
     <p class="pista">_ | _ _ _ _ _ _ _</p><br>
     <p>
-      मैं इस नोट को एक अनुस्मारक के रूप में छोड़ता हूं कि यह कैसे काम करता है, मैं बस आशा करता हूं कि यह खो न जाए। </p>
+      मैं इस नोट को एक अनुस्मारक के रूप में छोड़ता हूं कि यह कैसे काम करता है, मैं बस आशा करता हूं कि यह खो न जाए।
+    </p>
     <p class="signature">एक विनम्र सेवक.</p>
     <p>पी.एस. हमारे प्रिय ने संगीत की कला की शुरुआत किस तत्व से की?</p>
     <button (click)="togglewarning()">Regresar</button>
   </div>
 </div>
-<div >
-  <audio id="background-audio0" type="audio/mp3" src="/audio/TheShireAmbience.mp3" loop></audio>
+<div>
+  <audio *ngIf="!pregonero" id="background-audio0" type="audio/mp3" src="/audio/TheShireAmbience.mp3" loop></audio>
   <app-navbar></app-navbar>
   <div class="info">
     <router-outlet></router-outlet>
   </div>
-  <div class="town">
-    <img class="button-image" src="/img/pueblo.png" alt="" usemap="#image-map">
-    <a class="images" (click)="togglePregonero()"></a>
-    <a class="images2" (click)="togglewarning()"></a>
-    <a class="images3" (click)="toggleCave()"></a>
-  </div>
+  <a class="images" routerLink="/taberna"></a>
+  <a class="images2" (click)="togglewarning()"></a>
+  <a class="images3" routerLink="/cave"></a>
+  <img class="hiddenPregonero" src="/img/pregonero.png" (click)="togglePregonero()" alt="">
+  <img class="town" src="/img/pueblo.png" alt="">
+
 </div>
+
+

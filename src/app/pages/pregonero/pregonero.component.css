@@ -75,7 +75,6 @@ html, body {
     /* Ajusta el margen negativo para centrar el elemento */
     display: block;
     cursor: grab;
-    background-color: red;
   }
 
   .cubo {
@@ -87,7 +86,6 @@ html, body {
     /* Ajusta el margen negativo para centrar el elemento */
     display: block;
     cursor: grab;
-    background-color: blue;
   }
 }
 
