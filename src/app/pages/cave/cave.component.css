@@ -111,7 +111,7 @@
   position: absolute; /* Para poder posicionarlo respecto al contenedor padre */
   display: block;
   cursor: grab;
-  z-index: 100;
+  z-index: 10;
 }
 
 .siempre-visible {
@@ -161,6 +161,7 @@
 
 /* Estilo para la imagen del candado */
 .candado-imagen {
+  z-index: 20;
   display: block; /* Hace que la imagen sea un bloque para aplicar márgenes automáticos */
   margin: 0 auto; /* Centra la imagen horizontalmente */
   width: 50%; /* Ancho de la imagen, ajustable según tus necesidades */
@@ -179,7 +180,7 @@
   outline: none; /* Quitar el borde de enfoque predeterminado */
   transition: border-color 0.3s, box-shadow 0.3s; /* Transición suave para el color del borde y la sombra */
   background-color: #090606; /* Fondo claro para los campos de entrada */
-
+  z-index: 20;
 }
 
 /* Estilo para el campo de entrada con enfoque */
@@ -298,5 +299,22 @@ p {
   margin-top: 10px;
   font-size: 18px; /* Tamaño de fuente para el mensaje */
   color: #333; /* Color del texto del mensaje */
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-10px); }
+  50% { transform: translateX(10px); }
+  75% { transform: translateX(-10px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.6s ease;
+}
+
+.shake-fast {
+  animation: shake 0.2s ease; /* Duración más corta para un agitado más rápido */
+  animation-iteration-count: 6;
 }
 
