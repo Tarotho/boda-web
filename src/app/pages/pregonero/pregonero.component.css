@@ -9,18 +9,11 @@ html, body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: url('/img/tavern.jpg') no-repeat center center;
-  background-size: cover;
+  background: url('/img/tavern2.png') no-repeat left bottom;
+  background-size: cover; /* Asegura que el fondo cubra toda el área del contenedor */
   z-index: 10;
 }
 
-.tavern p {
-  color: #fff;
-  text-align: center;
-  padding: 20px;
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-}
 
 .recordatorio p{
   font-family: "Medieval";
@@ -34,28 +27,65 @@ html, body {
   max-width: 30%;
   border-radius: 10px;
   background-color:rgba(255, 255, 255, 0.3);
-}
-
-.pregonero {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: auto;
-  height: auto;
-  max-height: 50vh;
-  max-width: 50vw; /* Ajuste para evitar que sea más ancho que el 50% del viewport */
-}
-
-.bocadillo {
-  position: relative;
-  top: 3%; /* Posiciona el bocadillo negro a 10% desde la parte superior */
-  left: 5%;
-  width: 90%;
-  height: auto;
-  background: rgba(0, 0, 0, 0.5); /* Fondo negro con 50% de transparencia */
-  color: #fff;
+  text-align: center;
   padding: 20px;
-  box-sizing: border-box;
-  border-radius: 10px;
-  z-index: 20; /* Asegura que este bocadillo esté encima de otros elementos */
+  margin: 0;
 }
+
+.note {
+  position: absolute; /* O usa 'fixed' si quieres que se quede en el centro incluso cuando hagas scroll */
+  bottom: 50vw;
+  left: 24%;
+  width: 3%;
+  height: 4vw;
+  /* Ajusta el margen negativo para centrar el elemento */
+  display: block;
+  cursor: grab;
+}
+
+.prueba {
+  position: relative;
+  width: 100%; /* Ajusta el ancho de la imagen al 50% del contenedor padre */
+  max-width: 500px;
+  height: auto; /* Mantiene la proporción de la imagen */
+  max-height: 90vh; /* Máximo del 90% de la altura de la ventana */
+  left: 50%;
+  transform: translateX(-30%); /* Centra la imagen horizontalmente */
+  margin-top: 60px; /* Espaciado superior */
+}
+
+.cubo {
+  position: absolute; /* O usa 'fixed' si quieres que se quede en el centro incluso cuando hagas scroll */
+  bottom: 32vw;
+  left: 34%;
+  width: 6%;
+  height: 6vw;
+  /* Ajusta el margen negativo para centrar el elemento */
+  display: block;
+  cursor: grab;
+}
+
+@media (max-width: 100vh){
+  .note {
+    position: absolute; /* O usa 'fixed' si quieres que se quede en el centro incluso cuando hagas scroll */
+    bottom: 50%;
+    left: 23vh;
+    width: 40px;
+    height: 58px;
+    /* Ajusta el margen negativo para centrar el elemento */
+    display: block;
+    cursor: grab;
+  }
+
+  .cubo {
+    position: absolute; /* O usa 'fixed' si quieres que se quede en el centro incluso cuando hagas scroll */
+    bottom: 33%;
+    left: 33vh;
+    width: 100px;
+    height: 100px;
+    /* Ajusta el margen negativo para centrar el elemento */
+    display: block;
+    cursor: grab;
+  }
+}
+

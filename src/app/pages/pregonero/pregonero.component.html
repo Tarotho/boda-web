@@ -1,18 +1,25 @@
-<div *ngIf="!mistery" class="tavern">
-  <audio id="background-audio1" type="audio/mp3" src="/audio/CantinaBandEnd.mp3" autoplay></audio>
-
-  <!-- Condición para mostrar el contenido -->
-  <img *ngIf="showPregonero" class="pregonero" src="/img/pregonero.png" alt="">
-
-  <div *ngIf="showBocadillo" class="bocadillo">
-    <p>{{ dialogText }}</p>
+<div class="tavern">
+  <div class="warning-overlay" *ngIf="note">
+    <div class="warning-card">
+      <h1>A quien lea estas palabras:</h1>
+      <p>Oh, noble héroe, como os anuncié, he decidido ocultarme en la aldea, pues presiento un oscuro mal que acecha. </p>
+      <p>Todo se ha tornado más inquietante tras hallar aquella extraña piedra en el umbral de la taberna.</p>
+      <p>Ignorando su propósito, la arrojé a la hoguera de la chimenea, esperando que ardiera junto a mis dudas.</p>
+      <p>Mas aún así, temo por lo que vendrá y por ello he de marchar a refugiarme entre los aldeanos.</p>
+      <p>Si precisáis de mi ayuda, buscadme entre las sombras del pueblo.</p>
+      <p>Vuestro en lealtad,</p>
+      <p>Gerald</p>
+      <button (click)="toggleNote()">Regresar</button>
+    </div>
   </div>
+  <div *ngIf="cubo">
+    <img class="prueba" src="/img/prueba2.png" alt="">
+  </div>
+  <audio id="background-audio1" type="audio/mp3" src="/audio/CantinaEmpty.mp3" autoplay loop></audio>
 
   <div class="recordatorio">
     <p (click)="refreshPage()">Volver</p>
+    <a class="note" (click)="toggleNote()"></a>
+    <a class="cubo" (click)="toggleCubo()"></a>
   </div>
 </div>
-
-@if (mistery) {
-  <app-mistery *ngIf="mistery"/>
-}

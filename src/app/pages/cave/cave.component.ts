@@ -21,7 +21,10 @@ export class CaveComponent {
   navy: boolean = false;
   element: boolean = false;
   passwordCorrect: boolean = false;
+  candadoImagen = "/img/candado.png";
+  shakeClass: string = ''; // Clase para el efecto de agitado
   successMessage: string = '';
+  shakeCandado: boolean = false; // Añadido para controlar el efecto de agitado
 
   startdialogues = [
     { id: 1, text: 'Hey!', x: '10%', y: '10%' },
@@ -111,13 +114,17 @@ export class CaveComponent {
   }
 
   checkPassword() {
-    const password = this.inputText.join('');
-    if (password === 'hola') {
+    const password = btoa(this.inputText.join(''));
+    const validPasswords = ['UEVMVUNIRQ==', 'cGVsdWNoZQ==']; // Añade todas las contraseñas válidas aquí
+    if (validPasswords.includes(password)) {
+      console.log("Contraseña correcta");
+      this.applyShakeFast()
       this.passwordCorrect = true;
-      this.successMessage = '¡Felicidades!';
     } else {
+      console.log("Contraseña equivocada");
       this.passwordCorrect = false;
-      this.successMessage = 'Contraseña incorrecta. Inténtalo de nuevo.';
+      this.clearInput(); // Llama a la función para borrar los campos de entrada
+      this.applyShake(); // Aplica el efecto de agitado
     }
   }
 
@@ -137,6 +144,40 @@ export class CaveComponent {
       this.advanceDialogue();
     } else if (this.navy) {
       this.advanceNavyDialogue();
+    }
+  }
+
+  clearInput() {
+    // Limpia todos los campos de entrada
+    this.inputText = Array(7).fill('');
+
+    // Fuerza la actualización de los campos de entrada en la vista
+    setTimeout(() => {
+      const inputs = document.querySelectorAll('.password-char') as NodeListOf<HTMLInputElement>;
+      inputs.forEach(input => input.value = ''); // Limpia el valor de cada campo
+      if (inputs.length > 0) {
+        inputs[0].focus(); // Enfoca el primer campo
+      }
+    });
+  }
+  applyShake() {
+    const candadoImage = document.querySelector('.candado-imagen') as HTMLElement;
+    if (candadoImage) {
+      candadoImage.classList.add('shake');
+      setTimeout(() => {
+        candadoImage.classList.remove('shake'); // Remueve la clase después del efecto
+      }, 500); // Duración del efecto de agitado
+    }
+  }
+
+  applyShakeFast() {
+    const candadoImage = document.querySelector('.candado-imagen') as HTMLElement;
+    if (candadoImage) {
+      candadoImage.classList.add('shake-fast');
+      setTimeout(() => {
+        candadoImage.classList.remove('shake-fast'); // Remueve la clase después del efecto
+        this.candadoImagen = '/img/candadoAbierto.png'; // Cambia la imagen después de la animación
+      }, 2000); // Duración del efecto de agitado total
     }
   }
 }

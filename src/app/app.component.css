@@ -10,129 +10,107 @@
   color: #000000; /* Color del texto */
   margin: 0; /* Eliminar el margen */
 }
+
 .info {
-  min-height:700px;
+  min-height: 700px;
 }
 
-.town img {
+.pista {
+  text-align: left;
+}
+
+.bigPregonero {
+  z-index: 4;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: auto;
+  height: auto;
+  max-height: 70vh;
+  max-width: 70vw; /* Ajuste para evitar que sea más ancho que el 50% del viewport */
+}
+
+.bocadillo {
+  position: fixed;
+  top: 3%; /* Posiciona el bocadillo negro a 10% desde la parte superior */
+  left: 5%;
+  width: 90%;
+  height: auto;
+  background: rgba(0, 0, 0, 0.9); /* Fondo negro con 50% de transparencia */
+  color: #fff;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  z-index: 20; /* Asegura que este bocadillo esté encima de otros elementos */
+}
+
+
+.town {
   position: relative;
+  z-index: 2; /* Nivel de apilamiento superior */
   bottom: 0;
   right: 0;
   width: 100%; /* Ajusta el tamaño según tus necesidades */
   height: auto;
+  pointer-events: none; /* Deshabilita los eventos de puntero */
 }
 
 .images {
-  position: relative;
-  /* Ajusta estos valores para colocar y dimensionar el área clicable */
-  bottom: 14vw;    /* 10% del ancho de la pantalla desde la parte superior */
-  left: 9%;   /* Porcentaje desde la parte izquierda de la imagen */
-  width: 2%;  /* Ancho del área clicable */
-  height: 6vw; /* 20% del ancho de la pantalla para la altura */
-  /* Opcional: Si quieres ver el área clicable para ajustar la posición */
+  position: fixed;
+  bottom: 8vw;
+  left: 9%;
+  width: 2%;
+  height: 6vw;
   display: block;
   cursor: grab;
+  z-index: 3;
 }
 
 .images2 {
-  position: relative;
-  /* Ajusta estos valores para colocar y dimensionar el área clicable */
-  bottom: 13vw;    /* 10% del ancho de la pantalla desde la parte superior */
-  left: 86%;   /* Porcentaje desde la parte izquierda de la imagen */
-  width: 3%;  /* Ancho del área clicable */
-  height: 3vw; /* 20% del ancho de la pantalla para la altura */
-  /* Opcional: Si quieres ver el área clicable para ajustar la posición */
+  position: fixed;
+  bottom: 5vw;
+  left: 86%;
+  width: 3%;
+  height: 3vw;
   display: block;
   cursor: grab;
+  z-index: 3;
 }
 
 .images3 {
-  position: relative;
-  /* Ajusta estos valores para colocar y dimensionar el área clicable */
-  bottom: 26vw;    /* 10% del ancho de la pantalla desde la parte superior */
-  left: 93%;   /* Porcentaje desde la parte izquierda de la imagen */
-  width: 10%;  /* Ancho del área clicable */
-  height: 6vw; /* 20% del ancho de la pantalla para la altura */
-  /* Opcional: Si quieres ver el área clicable para ajustar la posición */
+  position: fixed;
+  bottom: 11vw;
+  left: 93%;
+  width: 10%;
+  height: 6vw;
   display: block;
   cursor: grab;
+  z-index: 3;
 }
 
-.pista{
-  text-align: left ;
+@keyframes bouncePregonero {
+  0%, 19%, 100% {
+    transform: translateY(0);
+    pointer-events: none; /* Deshabilitar clic fuera del rango */
+  }
+  7%, 12% {
+    transform: translateY(-3vw);
+    pointer-events: auto; /* Habilitar clic en el rango deseado */
+  }
+}
+
+.hiddenPregonero {
+  position: relative;
+  bottom: -9vw;
+  rotate: -45deg;
+  left: 57%;
+  width: 5%;
+  height: auto;
+  display: block;
+  animation: bouncePregonero 10s infinite;
+  cursor: grab;
+  z-index: 1;
+  will-change: transform;
 }
 
 
-/* Contenedor de advertencia */
-.warning-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.8); /* Fondo oscuro y semi-transparente */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 50; /* Asegura que esté encima de todos los demás elementos */
-  padding: 2%; /* Añade un pequeño padding proporcional */
-  box-sizing: border-box;
-}
-
-/* Tarjeta de advertencia */
-.warning-card {
-  background: #fdf6e3; /* Fondo color pergamino */
-  color: #000; /* Texto negro */
-  padding: 2%; /* Padding en porcentaje para mantener la proporción */
-  border-radius: 2%; /* Radio de borde en porcentaje */
-  text-align: center;
-  width: 80%; /* Ancho relativo al contenedor */
-  height: auto; /* Altura automática para mantener proporción del contenido */
-  max-height: 90%; /* Limita la altura máxima al 90% de la pantalla */
-  border: 0.5vw solid #5c3a21; /* Borde proporcional al ancho de la vista */
-  box-shadow: 0 0 5vw rgba(0, 0, 0, 0.7); /* Sombra proporcional al ancho de la vista */
-  box-sizing: border-box;
-  overflow-y: auto; /* Permite el desplazamiento si el contenido es demasiado grande */
-}
-
-/* Estilo de encabezado */
-.warning-card h1 {
-  font-family: 'Garamond', serif;
-  font-size: 2rem; /* Tamaño de fuente fijo para mantener consistencia */
-  margin-top: 0;
-  color: #3b2a1a;
-  text-shadow: 0.1rem 0.1rem 0.2rem rgba(0, 0, 0, 0.5); /* Sombra proporcional */
-}
-
-/* Estilo de párrafo */
-.warning-card p {
-  font-family: 'Times New Roman', serif;
-  font-size: 1.2rem; /* Tamaño de fuente fijo */
-  margin: 1% 0;
-  line-height: 1.6;
-}
-
-/* Firma del mensaje */
-.warning-card .signature {
-  font-family: 'Garamond', serif;
-  font-style: italic;
-  margin-top: 5%;
-  font-size: 1.2rem; /* Tamaño de fuente fijo */
-}
-
-/* Estilo de botón */
-.warning-card button {
-  padding: 1% 2%; /* Padding proporcional al tamaño del botón */
-  font-size: 1rem; /* Tamaño de fuente fijo */
-  cursor: pointer;
-  background-color: #6c4f28;
-  color: #fff;
-  border: none;
-  border-radius: 1%; /* Radio de borde proporcional */
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.warning-card button:hover {
-  background-color: #4a3a1c;
-  transform: scale(1.05);
-}
