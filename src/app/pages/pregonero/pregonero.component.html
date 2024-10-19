@@ -1,8 +1,15 @@
 <div class="tavern">
+  <div class="warning-overlay" *ngIf="previusly">
+    <div class="warning-card">
+      <app-resumen></app-resumen>
+      <button (click)="togglePreviusly()">Regresar</button>
+    </div>
+  </div>
   <div class="warning-overlay" *ngIf="note">
     <div class="warning-card">
       <h1>A quien lea estas palabras:</h1>
-      <p>Oh, noble héroe, como os anuncié, he decidido ocultarme en la aldea, pues presiento un oscuro mal que acecha. </p>
+      <p>Oh, noble héroe, como os anuncié, he decidido ocultarme en la aldea, pues presiento un oscuro mal que
+        acecha. </p>
       <p>Todo se ha tornado más inquietante tras hallar aquella extraña piedra en el umbral de la taberna.</p>
       <p>Ignorando su propósito, la arrojé a la hoguera de la chimenea, esperando que ardiera junto a mis dudas.</p>
       <p>Mas aún así, temo por lo que vendrá y por ello he de marchar a refugiarme entre los aldeanos.</p>

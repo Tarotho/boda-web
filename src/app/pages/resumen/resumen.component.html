@@ -1,1 +1,9 @@
-<p>resumen works!</p>
+<div class="resumen">
+  <h1>Anteriormente...</h1>
+  <img [src]="currentImage" alt="Imagen Resumen" />
+  <p [innerHTML]="currentDescription"></p> <!-- Renderiza HTML -->
+  <div class="buttons">
+    <button *ngIf="currentIndex > 0" (click)="previous()">Anterior</button>
+    <button *ngIf="currentIndex < images.length - 1" (click)="next()">Siguiente</button>
+  </div>
+</div>

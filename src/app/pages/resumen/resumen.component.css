@@ -1,0 +1,11 @@
+.buttons {
+  margin-top: 10px; /* Espaciado superior para los botones */
+  margin-bottom: 10px;
+}
+
+button {
+  width: 120px; /* Ajusta el ancho deseado para todos los botones */
+  padding: 10px; /* Ajusta el relleno según sea necesario */
+  margin: 0 5px; /* Espaciado entre botones */
+  transition: background-color 0.3s; /* Transición suave al cambiar el color de fondo */
+}
