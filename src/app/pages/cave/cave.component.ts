@@ -177,7 +177,9 @@ export class CaveComponent {
       setTimeout(() => {
         candadoImage.classList.remove('shake-fast'); // Remueve la clase después del efecto
         this.candadoImagen = '/img/candadoAbierto.png'; // Cambia la imagen después de la animación
-      }, 2000); // Duración del efecto de agitado total
+        setTimeout(() => {
+          this.router.navigate(['/shiva']); // Cambia '/shiva' si tu ruta es diferente
+        }, 2000);}, 2000); // Duración del efecto de agitado total
     }
   }
 }
