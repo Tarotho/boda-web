@@ -9,3 +9,14 @@ button {
   margin: 0 5px; /* Espaciado entre botones */
   transition: background-color 0.3s; /* Transición suave al cambiar el color de fondo */
 }
+
+.image {
+  width: 100%; /* La imagen ocupa el 100% del espacio disponible */
+  max-width: 90vw; /* Limita el ancho máximo de la imagen a 90% del ancho de la ventana */
+  height: auto; /* Mantiene la proporción de la imagen */
+  object-fit: contain; /* Asegura que la imagen se ajuste sin deformarse */
+}
+
+.red {
+  color: red; /* Rojo oscuro */
+}

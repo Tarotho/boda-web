@@ -1,6 +1,6 @@
 <div class="background-image" [style.backgroundImage]="'url(' + backgroundImage + ')'"></div>
 <div class="cave-container" (click)="advanceDialogueIfActive()">
-  <audio id="background-audio" type="audio/mp3" src="/audio/cave-background.mp3" autoplay loop></audio>
+  <audio id="background-audio" type="audio/mp3" preload="auto" loop></audio> <!-- Solo cave-background se reproduce automáticamente -->
   <div class="background-image">
     <div *ngIf="startText || pregoneroDialoge"
          class="dialogue-separate"

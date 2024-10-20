@@ -1,8 +1,13 @@
-import { Component, HostListener, OnInit } from '@angular/core'; // Importa OnInit
+import { Component, OnInit } from '@angular/core';
 import { CommonModule, NgIf } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { Router } from '@angular/router';
+
+interface Dialogue {
+  id: number;
+  text: string;
+}
 
 @Component({
   selector: 'app-shiva',
@@ -11,13 +16,17 @@ import { Router } from '@angular/router';
   templateUrl: './shiva.component.html',
   styleUrls: ['./shiva.component.css']
 })
-export class ShivaComponent implements OnInit { // Implementa OnInit
-  backgroundImage: string = '/img/misteryBackground3.png'; // Cambia la URL según lo necesites
-  startText = false; // Cambia a false para que no se muestre al inicio
+export class ShivaComponent implements OnInit {
+  backgroundImage: string = '/img/misteryBackground3.png';
+  startText = false;
   startDialogueIndex: number = 0;
   pregonero = false;
   pregoneroDialoge = false;
   contact = false;
+
+  private caveAudioElement!: HTMLAudioElement; // Aserción no nula
+  private cantinaAudioElement!: HTMLAudioElement; // Aserción no nula
+  private isCantinaPlaying: boolean = false;
 
   startdialogues = [
     { id: 1, text: 'He quedado complacido por tu labor en este reino, humano.' },
@@ -44,29 +53,59 @@ export class ShivaComponent implements OnInit { // Implementa OnInit
   constructor(private router: Router) { }
 
   ngOnInit() {
-    // Establece un temporizador de 2 segundos antes de iniciar el diálogo
+    this.caveAudioElement = document.getElementById('background-audio') as HTMLAudioElement;
+    this.caveAudioElement.src = '/audio/cave-background.mp3';
+    this.caveAudioElement.preload = 'auto';
+    this.caveAudioElement.loop = true;
+    this.caveAudioElement.play();
+
+    this.cantinaAudioElement = new Audio('/audio/CantinaBand.mp3'); // Inicializada aquí
+    this.cantinaAudioElement.preload = 'auto';
+    this.cantinaAudioElement.load();
+
+    console.log("Cave audio source set and playing");
+
     setTimeout(() => {
-      this.startText = true; // Cambia a true después de 2 segundos
+      this.startText = true;
+      console.log("Start text visible");
     }, 2000);
   }
 
-  getCurrentDialogue() {
+  getCurrentDialogue(): Dialogue {
     return this.startdialogues[this.startDialogueIndex];
   }
 
   advanceDialogue() {
-    if (this.startDialogueIndex < this.startdialogues.length -1) {
+    console.log(`Advancing dialogue: current index ${this.startDialogueIndex}`);
+
+    if (this.startDialogueIndex < this.startdialogues.length - 1) {
       this.startDialogueIndex++;
-      if (this.startDialogueIndex > 10){
+
+      if (this.startDialogueIndex > 10) {
+        if (this.startDialogueIndex === 11) {
+          console.log("Switching to Cantina music");
+          this.caveAudioElement.pause();
+          this.caveAudioElement.currentTime = 0;
+          this.playCantina();
+        }
+
         this.backgroundImage = '/img/misteryBackground4.jpg';
         this.startText = false;
         setTimeout(() => {
           this.getPregonero();
         }, 2000);
-        if (this.startDialogueIndex == this.startdialogues.length -1){
+
+        if (this.startDialogueIndex === this.startdialogues.length - 1) {
           this.contact = true;
         }
       }
+    }
+  }
+
+  playCantina() {
+    if (!this.isCantinaPlaying) {
+      this.cantinaAudioElement.play();
+      this.isCantinaPlaying = true;
     }
   }
 
@@ -77,23 +116,19 @@ export class ShivaComponent implements OnInit { // Implementa OnInit
   }
 
   getPregonero() {
-    const audioElement = document.getElementById('background-audio') as HTMLAudioElement;
-    audioElement.src = '/audio/CantinaBand.mp3'; // Cambia la fuente del audio
-    audioElement.load(); // Carga el nuevo archivo de audio
-    audioElement.play(); // Reproduce la nueva canción
-
+    console.log("Activating pregonero");
     setTimeout(() => {
       this.pregonero = true;
       setTimeout(() => {
         this.pregoneroDialoge = true;
       }, 2000);
-    }, 2000); // Espera 2 segundos antes de activar el pregonero
+    }, 2000);
   }
 
   advanceDialogueIfActive() {
+    console.log(`Advance dialogue called: startText=${this.startText}, pregoneroDialoge=${this.pregoneroDialoge}`);
     if (this.startText || this.pregoneroDialoge) {
       this.advanceDialogue();
     }
   }
-
 }
