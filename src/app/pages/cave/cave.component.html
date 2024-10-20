@@ -17,6 +17,7 @@
   <div class="background-image">
     @if (startText) {
       <!-- Bocadillo de diálogo para los primeros tres -->
+      <div class="exit-text" (click)="exitPage()">Saltar</div>
       <div
         *ngIf="startDialogueIndex < 3 && getCurrentDialogue()"
         class="dialogue"

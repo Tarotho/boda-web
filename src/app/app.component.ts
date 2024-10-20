@@ -1,8 +1,8 @@
 import {Component, HostListener, OnInit} from '@angular/core';
 import {Router, RouterLink, RouterOutlet} from '@angular/router';
-import { NavbarComponent } from "./bar/navbar/navbar.component";
-import { PregoneroComponent } from "./pages/pregonero/pregonero.component";
-import { MisteryComponent } from "./pages/mistery/mistery.component";
+import {NavbarComponent} from "./bar/navbar/navbar.component";
+import {PregoneroComponent} from "./pages/pregonero/pregonero.component";
+import {MisteryComponent} from "./pages/mistery/mistery.component";
 import {NgIf} from "@angular/common";
 
 @Component({
@@ -12,7 +12,7 @@ import {NgIf} from "@angular/common";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'] // Asegúrate de usar 'styleUrls' en lugar de 'styleUrl'
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
 
   constructor(private router: Router) {
   }
@@ -39,14 +39,6 @@ export class AppComponent implements OnInit{
 
 
   ngOnInit(): void {
-
-    setTimeout(() => {
-      this.showBocadillo = true;
-      this.dialogText = this.startText;
-      this.isStoryActive = true; // Iniciar la historia después de la introducción
-      document.addEventListener('click', this.handleClick.bind(this));
-      document.addEventListener('keydown', this.handleKeyDown.bind(this)); // Escuchar tecla "Enter"
-    }, 3000);
   }
 
   private handleClick(): void {
@@ -60,13 +52,14 @@ export class AppComponent implements OnInit{
   }
 
   private advanceStory(): void {
-    if (this.isStoryActive) {
+    if (this.isStoryActive && this.showBocadillo) { // Verificar si el bocadillo está activo
       if (this.currentStoryIndex < this.storyParts.length) {
         this.dialogText = this.storyParts[this.currentStoryIndex];
         this.currentStoryIndex++;
       } else {
         this.isStoryActive = false;
         this.pregonero = false;
+        this.showBocadillo = false; // Ocultar el bocadillo cuando la historia termina
       }
     }
   }
@@ -98,20 +91,14 @@ export class AppComponent implements OnInit{
   }
 
   togglePregonero() {
+this.currentStoryIndex = 0;
+    setTimeout(() => {
+      this.showBocadillo = true;
+      this.dialogText = this.startText;
+      this.isStoryActive = true; // Iniciar la historia después de la introducción
+      document.addEventListener('click', this.handleClick.bind(this));
+      document.addEventListener('keydown', this.handleKeyDown.bind(this)); // Escuchar tecla "Enter"
+    }, 3000);
     this.pregonero = !this.pregonero;
-  }
-
-  enablePregoneroClick(): void {
-    const pregoneroElement = document.querySelector('.pregonero') as HTMLElement;
-    if (pregoneroElement) {
-      pregoneroElement.style.pointerEvents = 'auto'; // Habilita clic
-    }
-  }
-
-  disablePregoneroClick(): void {
-    const pregoneroElement = document.querySelector('.pregonero') as HTMLElement;
-    if (pregoneroElement) {
-      pregoneroElement.style.pointerEvents = 'none'; // Deshabilita clic
-    }
   }
 }

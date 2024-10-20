@@ -22,9 +22,6 @@ export class CaveComponent {
   element: boolean = false;
   passwordCorrect: boolean = false;
   candadoImagen = "/img/candado.png";
-  shakeClass: string = ''; // Clase para el efecto de agitado
-  successMessage: string = '';
-  shakeCandado: boolean = false; // Añadido para controlar el efecto de agitado
 
   startdialogues = [
     { id: 1, text: 'Hey!', x: '10%', y: '10%' },
@@ -182,4 +179,9 @@ export class CaveComponent {
         }, 2000);}, 2000); // Duración del efecto de agitado total
     }
   }
+
+  exitPage(): void {
+    this.startText = false;
+  }
+
 }
