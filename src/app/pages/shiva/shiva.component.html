@@ -1,21 +1,16 @@
-<div class="cave-container">
-  <audio id="background-audio2" type="audio/mp3" src="/audio/cave-background.mp3" autoplay loop></audio>
+<div class="background-image" [style.backgroundImage]="'url(' + backgroundImage + ')'"></div>
+<div class="cave-container" (click)="advanceDialogueIfActive()">
+  <audio id="background-audio" type="audio/mp3" src="/audio/cave-background.mp3" autoplay loop></audio>
   <div class="background-image">
-    @if (startText) {
-
-      <!-- Bocadillo de diálogo para los diálogos a partir del cuarto -->
-      <div
-        class="dialogue-separate"
-        [ngClass]="{
-        'dialogue-centered': startDialogueIndex >= 3
-      }"
-        (click)="advanceDialogue()">
-        <p>{{ getCurrentDialogue().text }}</p>
-      </div>
-    }
-
+    <div *ngIf="startText || pregoneroDialoge"
+         class="dialogue-separate"
+         tabindex="0">
+      <p>{{ getCurrentDialogue().text }}</p>
+    </div>
   </div>
   <div class="recordatorio">
     <p (click)="refreshPage()">Volver</p>
   </div>
+    <img *ngIf="pregonero" class="pregonero" src="/img/pregonero.png" alt="">
+    <img *ngIf="contact" class="contact" src="/img/contact.png" alt="">
 </div>
