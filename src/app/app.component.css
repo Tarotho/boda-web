@@ -30,6 +30,10 @@
   max-width: 70vw; /* Ajuste para evitar que sea más ancho que el 50% del viewport */
 }
 
+.red {
+  color: red; /* Color rojo para la letra U */
+}
+
 .bocadillo {
   position: fixed;
   top: 3%; /* Posiciona el bocadillo negro a 10% desde la parte superior */
