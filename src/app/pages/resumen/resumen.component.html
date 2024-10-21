@@ -1,0 +1,9 @@
+<div class="resumen">
+  <h1>Anteriormente...</h1>
+  <img *ngIf=image class="image" [src]="currentImage" alt="Imagen Resumen" />
+  <p [innerHTML]="currentDescription"></p> <!-- Renderiza HTML -->
+  <div class="buttons">
+    <button *ngIf="currentIndex > 0" (click)="previous()">Anterior</button>
+    <button *ngIf="currentIndex < descriptions.length - 1" (click)="next()">Siguiente</button>
+  </div>
+</div>

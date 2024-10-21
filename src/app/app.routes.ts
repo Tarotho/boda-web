@@ -8,6 +8,7 @@ import { VestimentaComponent } from './pages/vestimenta/vestimenta.component';
 import { EncuestaComponent } from './pages/encuesta/encuesta.component';
 import {CaveComponent} from "./pages/cave/cave.component";
 import {PregoneroComponent} from "./pages/pregonero/pregonero.component";
+import {ShivaComponent} from "./pages/shiva/shiva.component";
 
 export const routes: Routes = [
     {path: 'inicio', component: InicioComponent},
@@ -19,7 +20,9 @@ export const routes: Routes = [
     {path: 'encuesta', component: EncuestaComponent},
     {path: 'cave', component: CaveComponent},
     {path: 'taberna', component: PregoneroComponent},
+    {path: 'shiva', component: ShivaComponent},
     { path: 'encuesta.html', redirectTo: 'encuesta', pathMatch: 'full' },
     { path: '', redirectTo: '/inicio', pathMatch: 'full' },
     { path: '**', redirectTo: '/inicio', pathMatch: 'full' }
+
 ];

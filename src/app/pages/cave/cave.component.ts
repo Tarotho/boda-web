@@ -22,9 +22,6 @@ export class CaveComponent {
   element: boolean = false;
   passwordCorrect: boolean = false;
   candadoImagen = "/img/candado.png";
-  shakeClass: string = ''; // Clase para el efecto de agitado
-  successMessage: string = '';
-  shakeCandado: boolean = false; // Añadido para controlar el efecto de agitado
 
   startdialogues = [
     { id: 1, text: 'Hey!', x: '10%', y: '10%' },
@@ -177,7 +174,14 @@ export class CaveComponent {
       setTimeout(() => {
         candadoImage.classList.remove('shake-fast'); // Remueve la clase después del efecto
         this.candadoImagen = '/img/candadoAbierto.png'; // Cambia la imagen después de la animación
-      }, 2000); // Duración del efecto de agitado total
+        setTimeout(() => {
+          this.router.navigate(['/shiva']); // Cambia '/shiva' si tu ruta es diferente
+        }, 2000);}, 2000); // Duración del efecto de agitado total
     }
   }
+
+  exitPage(): void {
+    this.startText = false;
+  }
+
 }

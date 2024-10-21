@@ -89,3 +89,15 @@ html, body {
   }
 }
 
+.warning-card {
+  display: flex;
+  flex-direction: column; /* Coloca los elementos en columna */
+  align-items: center; /* Centra los elementos horizontalmente */
+}
+
+button {
+  width: auto; /* Ancho automático según el contenido */
+  max-width: 150px; /* Ajusta el ancho máximo según tus necesidades */
+  padding: 10px 20px; /* Ajusta el relleno según sea necesario */
+}
+
